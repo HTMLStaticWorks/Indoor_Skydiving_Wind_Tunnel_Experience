@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.removeAttribute('dir');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Experience the thrill of human flight in a safe, state-of-the-art indoor skydiving wind tunnel.">
+    <title>AeroFly | Indoor Skydiving Experience (Home 2)</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-xl fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="index.html">
+                <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+            </a>
+
+            <div class="nav-controls d-flex order-xl-last align-items-center">
+                <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                    RTL
+                </button>
+                <a href="login.html" class="btn btn-primary d-none d-sm-inline-flex px-4 fw-bold">Login</a>
+                <button class="navbar-toggler ms-2 shadow-none border-0 px-2" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="bi bi-list fs-1"></i>
+                </button>
+            </div>
+
+            <div class="offcanvas offcanvas-end glass-offcanvas" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-dark">
+                    <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasNavbarLabel">
+                        <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                        <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="index.html">Home</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link active fw-medium" aria-current="page"
+                                href="home-2.html">Home 2</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="about.html">About</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="services.html">Services</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="pricing.html">Packages</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="contact.html">Contact</a></li>
+                        <li class="nav-item mx-2 d-sm-none mt-3">
+                            <a href="login.html" class="btn btn-primary w-100">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Split Hero Section (Home 2 Variation) -->
+    <section class="hero-section d-flex align-items-center bg-darker pt-10 pb-5 pb-lg-10" style="min-height: 100vh;">
+        <div class="container pt-5">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal-left">
+                    <span
+                        class="badge bg-primary-alpha text-primary mb-3 px-3 py-2 rounded-pill fw-bold tracking-wide border border-primary">FEEL
+                        THE RUSH</span>
+                    <h1 class="display-1 fw-bold mb-4">Anyone Can <span class="text-gradient">Fly</span></h1>
+                    <p class="lead mb-3 text-light-muted pe-lg-5">Indoor skydiving is the simulation of true freefall
+                        conditions in a vertical wind tunnel. No parachute, no jumping, and nothing attaching you to
+                        planet Earth!</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="pricing.html" class="btn btn-primary btn-lg px-5 shadow-glow fw-bold">View Packages</a>
+                        <a href="about.html" class="btn btn-outline-secondary btn-lg px-4 fw-bold">Learn More</a>
+                    </div>
+
+                    <!-- <div class="d-flex align-items-center gap-4 mt-5 pt-3 border-top border-secondary">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-star-fill text-accent me-2"></i>
+                            <span class="fw-bold">4.9/5</span>
+                            <span class="text-light-muted ms-2">(2k+ Reviews)</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-shield-check text-primary me-2"></i>
+                            <span class="fw-bold">100% Safe</span>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-lg-6 reveal-right">
+                    <div class="position-relative">
+                        <img src="assets/images/hero_wind_tunnel.png" alt="Indoor Skydiving Experience"
+                            class="img-fluid rounded-4 shadow-xl border border-secondary"
+                            style="height: 600px; object-fit: cover;">
+                        <!-- Floating Badge -->
+                        <div
+                            class="position-absolute top-0 end-0 mt-4 me-4 bg-dark border border-secondary rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
+                            <div class="bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 40px; height: 40px;">
+                                <i class="bi bi-person-arms-up"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold">Ages 3 to 103</h6>
+                                <small class="text-light-muted">No experience needed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-orb position-absolute top-50 start-0 translate-middle-y" style="background: var(--primary);">
+        </div>
+    </section>
+
+    <!-- 2. Features Grid -->
+    <section class="py-10 bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Why AeroFly</h6>
+                <h2 class="display-4 fw-bold">The Ultimate Experience</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 reveal-up" style="transition-delay: 100ms;">
+                    <div class="p-5 glass-card rounded-4 border-0 h-100 hover-lift text-center">
+                        <div class="icon-circle bg-primary-alpha text-primary mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-1 shadow-glow"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-fan"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Smooth Airflow</h4>
+                        <p class="text-light-muted mb-0">Our recirculating wind tunnel provides the smoothest, most
+                            realistic freefall simulation available.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal-up" style="transition-delay: 200ms;">
+                    <div class="p-5 glass-card rounded-4 border-0 h-100 hover-lift text-center">
+                        <div class="icon-circle bg-accent-alpha text-accent mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-1 shadow-glow"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Expert Instructors</h4>
+                        <p class="text-light-muted mb-0">Fly with certified professionals who guide you every step of
+                            the way to ensure your safety.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal-up" style="transition-delay: 300ms;">
+                    <div class="p-5 glass-card rounded-4 border-0 h-100 hover-lift text-center">
+                        <div class="icon-circle bg-secondary-alpha text-secondary mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-1 shadow-glow"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">HD Video Memories</h4>
+                        <p class="text-light-muted mb-0">Relive the adrenaline rush! We capture every moment of your
+                            flight with multiple HD cameras.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Wind Tunnel Simulator -->
+    <section id="wind-simulator" class="py-10 position-relative border-top border-secondary">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Simulator Control</h6>
+                <h2 class="display-4 fw-bold">Wind Tunnel Speed Visualizer</h2>
+                <p class="text-light-muted max-w-800 mx-auto mt-2">Adjust the wind tunnel airspeed slider below to see
+                    how turbine RPM, aerodynamic G-force, and flight techniques scale in real time.</p>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <!-- Interactive Controls -->
+                <div class="col-lg-6">
+                    <div class="p-5 rounded-4 simulator-panel glass-card border border-secondary shadow-lg">
+                        <h4 class="fw-bold mb-4 text-white"><i class="bi bi-sliders me-2 text-primary"></i>Speed Control
+                            Panel</h4>
+
+                        <div class="mb-5">
+                            <label for="windSpeedSlider"
+                                class="form-label d-flex justify-content-between text-light-muted mb-3 fs-5">
+                                <span>Target Speed:</span>
+                                <span class="fw-bold text-primary" id="windSpeedVal">120 MPH</span>
+                            </label>
+                            <input type="range" class="range-slider-custom" id="windSpeedSlider" min="80" max="180"
+                                value="120" oninput="updateWindTunnelSpeed(this.value)">
+                            <div class="d-flex justify-content-between text-muted mt-2 small">
+                                <span>80 MPH (Belly)</span>
+                                <span>130 MPH (Back)</span>
+                                <span>180 MPH (Head-Down)</span>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label text-light-muted mb-2">Tunnel Air Velocity Intensity</label>
+                            <div class="wind-bar-wrapper">
+                                <div class="wind-bar-fill" id="windSpeedBarFill" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Telemetry & Flight Style -->
+                <div class="col-lg-6">
+                    <div class="p-5 rounded-4 bg-dark border border-secondary h-100">
+                        <h4 class="fw-bold mb-4 text-white"><i class="bi bi-cpu me-2 text-primary"></i>Live Telemetry
+                            Feedback</h4>
+
+                        <div class="row g-4 mb-4">
+                            <div class="col-6">
+                                <div class="p-4 rounded-4 bg-secondary-alpha border border-secondary text-center">
+                                    <h6 class="text-light-muted mb-2 uppercase tracking-wide">Turbine Speed</h6>
+                                    <h3 class="fw-bold text-white mb-0" id="turbineRPM">1,780 RPM</h3>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-4 rounded-4 bg-secondary-alpha border border-secondary text-center">
+                                    <h6 class="text-light-muted mb-2 uppercase tracking-wide">Aerodynamic Lift</h6>
+                                    <h3 class="fw-bold text-white mb-0" id="estimatedGForce">1.14 G</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-4 bg-primary-alpha border border-primary-alpha mb-4">
+                            <span class="badge bg-primary mb-2 text-dark font-heading fw-bold" id="flyStyleBadge">Back
+                                Flying (Intermediate)</span>
+                            <h5 class="fw-bold text-white mb-2">Expected Flying Style</h5>
+                            <p class="text-light-muted mb-0" id="flyStyleDesc">Increased velocity enables transition to
+                                flying on your back and control turns.</p>
+                        </div>
+
+                        <div class="text-end">
+                            <a href="pricing.html" class="btn btn-primary px-4 fw-bold">Test Your Style</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function updateWindTunnelSpeed(val) {
+                document.getElementById('windSpeedVal').innerText = val + ' MPH';
+                const fill = document.getElementById('windSpeedBarFill');
+                const pct = ((val - 80) / (180 - 80)) * 100;
+                fill.style.width = pct + '%';
+
+                // Telemetry calculations
+                const rpm = Math.round(val * 11.5 + 400);
+                document.getElementById('turbineRPM').innerText = rpm.toLocaleString() + ' RPM';
+                const gForce = (val / 100 * 0.95).toFixed(2);
+                document.getElementById('estimatedGForce').innerText = gForce + ' G';
+
+                // Content update
+                let styleText = "";
+                let desc = "";
+                if (val < 110) {
+                    styleText = "Belly Fly (Beginner)";
+                    desc = "Perfect for first-timers. Stable airflow lets you float comfortably face-down.";
+                } else if (val < 140) {
+                    styleText = "Back Flying (Intermediate)";
+                    desc = "Increased velocity enables transition to flying on your back and control turns.";
+                } else if (val < 165) {
+                    styleText = "Vertical / Freefly (Advanced)";
+                    desc = "High-speed flow allows flying feet-first and head-up in a stable position.";
+                } else {
+                    styleText = "Head Down Carving (Pro)";
+                    desc = "Maximum airspeed. Designed for expert flyers performing high-speed loops and tricks.";
+                }
+                document.getElementById('flyStyleBadge').innerText = styleText;
+                document.getElementById('flyStyleBadge').className = val >= 140 ? 'badge bg-accent text-white mb-2 font-heading fw-bold' : 'badge bg-primary text-dark mb-2 font-heading fw-bold';
+                document.getElementById('flyStyleDesc').innerText = desc;
+            }
+        </script>
+    </section>
+
+    <!-- AeroFly Academy Roadmap -->
+    <!-- <section id="progression-roadmap" class="py-10 bg-darker border-top border-secondary"> -->
+    <!--<div class="container">
+            <!-- <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Academy progression</h6>
+                <h2 class="display-4 fw-bold">Training roadmap & levels</h2>
+                <p class="text-light-muted max-w-800 mx-auto mt-2">Discover how AeroFly Academy takes you from zero
+                    experience to a professional freefly master.</p>
+            </div> -->
+
+    <!-- <div class="timeline-roadmap mt-5">-->
+    <!-- Level 1 -->
+    <!-- <div class="row g-4 align-items-center position-relative mb-5">
+                    <div class="col-md-5 order-md-1 text-md-end pe-md-5">
+                        <div
+                            class="p-4 rounded-4 glass-card roadmap-card border border-secondary text-start text-md-end">
+                            <span class="badge badge-accent mb-2">Level 1</span>
+                            <h4 class="fw-bold text-white mb-3">Belly Flight Basics</h4>
+                            <p class="text-light-muted mb-0">Learn stable body positioning, basic hand signals, and how
+                                to execute controlled turns and height variations.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 order-md-2 d-flex justify-content-center">
+                        <div
+                            class="roadmap-step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold text-primary fs-4">
+                            01</div>
+                    </div>
+                    <div class="col-md-5 order-md-3 ps-md-5">
+                        <div class="p-4 bg-dark rounded-4 border border-secondary">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 1-2
+                                Hours</h6>
+                            <ul class="list-unstyled mb-0 text-light-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Neutral belly position</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Forward & backward motion
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>360-degree turns</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+
+    <!-- Level 2 -->
+    <!-- <div class="row g-4 align-items-center position-relative mb-5">
+                    <div class="col-md-5 order-md-3 ps-md-5">
+                        <div class="p-4 rounded-4 glass-card roadmap-card border border-secondary">
+                            <span class="badge badge-accent mb-2">Level 2</span>
+                            <h4 class="fw-bold text-white mb-3">Back Flying & Transitions</h4>
+                            <p class="text-light-muted mb-0">Discover the freedom of flying on your back. Build the
+                                muscle memory to safely flip between belly and back flying.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 order-md-2 d-flex justify-content-center">
+                        <div
+                            class="roadmap-step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold text-primary fs-4">
+                            02</div>
+                    </div>
+                    <div class="col-md-5 order-md-1 text-md-end pe-md-5">
+                        <div class="p-4 bg-dark rounded-4 border border-secondary text-start">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 5-8
+                                Hours</h6>
+                            <ul class="list-unstyled mb-0 text-light-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Stable back flying posture
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Belly-to-back transition
+                                    loops</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Air-docking with partner
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+
+    <!-- Level 3 -->
+    <!-- <div class="row g-4 align-items-center position-relative mb-5">
+                    <div class="col-md-5 order-md-1 text-md-end pe-md-5">
+                        <div
+                            class="p-4 rounded-4 glass-card roadmap-card border border-secondary text-start text-md-end">
+                            <span class="badge badge-accent mb-2">Level 3</span>
+                            <h4 class="fw-bold text-white mb-3">Vertical Dynamics (Head-Up)</h4>
+                            <p class="text-light-muted mb-0">Learn vertical flying. Suspended upright in a sitting
+                                position, requiring precise leg and arm air deflection.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 order-md-2 d-flex justify-content-center">
+                        <div
+                            class="roadmap-step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold text-primary fs-4">
+                            03</div>
+                    </div>
+                    <div class="col-md-5 order-md-3 ps-md-5">
+                        <div class="p-4 bg-dark rounded-4 border border-secondary">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 15-20
+                                Hours</h6>
+                            <ul class="list-unstyled mb-0 text-light-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Stable sit-fly positioning
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Upright speed carvings</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Vertical altitude control
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+
+    <!-- Level 4 -->
+    <!-- <div class="row g-4 align-items-center position-relative">
+                    <div class="col-md-5 order-md-3 ps-md-5">
+                        <div class="p-4 rounded-4 glass-card roadmap-card border border-secondary">
+                            <span class="badge badge-accent mb-2">Level 4</span>
+                            <h4 class="fw-bold text-white mb-3">Pro Freeflying (Head-Down)</h4>
+                            <p class="text-light-muted mb-0">The ultimate level of flight control. Fly head-down,
+                                executing high-speed loops, carvings, and team choreography.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 order-md-2 d-flex justify-content-center">
+                        <div
+                            class="roadmap-step-circle rounded-circle d-flex align-items-center justify-content-center fw-bold text-primary fs-4">
+                            04</div>
+                    </div>
+                    <div class="col-md-5 order-md-1 text-md-end pe-md-5">
+                        <div class="p-4 bg-dark rounded-4 border border-secondary text-start">
+                            <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 40+
+                                Hours</h6>
+                            <ul class="list-unstyled mb-0 text-light-muted">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Head-down speed carving
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Multi-flyer coordination
+                                </li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Competitor-level acrobatics
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> -->
+    <!--</div> -->
+    <!--</div>-->
+    <!-- </section> -->
+
+    <!-- Flight Gear Customizer -->
+    <section id="gear-customizer" class="py-10 bg-dark border-top border-secondary">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Flight Equipment</h6>
+                <h2 class="display-4 fw-bold">Interactive Gear Explorer</h2>
+                <p class="text-light-muted max-w-800 mx-auto mt-2">Explore the gear provided for every flight. Tap any
+                    item below to inspect details and performance specifications.</p>
+            </div>
+
+            <div class="row g-4 align-items-stretch">
+                <!-- Interactive Selector Grid -->
+                <div class="col-lg-5 d-flex flex-column gap-3">
+                    <div class="p-4 rounded-4 gear-item-card active d-flex align-items-center gap-4 hover-lift"
+                        onclick="selectGear('suit', this)">
+                        <div class="fs-1 text-primary"><i class="bi bi-person-badge"></i></div>
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Flight Suit</h5>
+                            <p class="text-light-muted mb-0 small">Low-drag tailored airflow suit</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-4 gear-item-card d-flex align-items-center gap-4 hover-lift"
+                        onclick="selectGear('helmet', this)">
+                        <div class="fs-1 text-primary"><i class="bi bi-headset"></i></div>
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Aero Helmet</h5>
+                            <p class="text-light-muted mb-0 small">Carbon shell full-face protection</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-4 gear-item-card d-flex align-items-center gap-4 hover-lift"
+                        onclick="selectGear('goggles', this)">
+                        <div class="fs-1 text-primary"><i class="bi bi-eye"></i></div>
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">High-Vis Goggles</h5>
+                            <p class="text-light-muted mb-0 small">Anti-fog peripheral visibility</p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-4 gear-item-card d-flex align-items-center gap-4 hover-lift"
+                        onclick="selectGear('gloves', this)">
+                        <div class="fs-1 text-primary"><i class="bi bi-hand-index-thumb"></i></div>
+                        <div>
+                            <h5 class="fw-bold text-white mb-1">Flight Gloves</h5>
+                            <p class="text-light-muted mb-0 small">High-grip abrasion protection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Inspector Panel -->
+                <div class="col-lg-7">
+                    <div
+                        class="p-5 rounded-4 glass-card border border-secondary h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h4 class="fw-bold text-white mb-0" id="gearDetailTitle">Professional Flight Suit</h4>
+                                <span class="badge badge-accent">Included</span>
+                            </div>
+                            <div class="text-center py-3">
+                                <i class="bi bi-person-badge gear-detail-icon mb-3" id="gearDetailIcon"
+                                    style="font-size: 4rem;"></i>
+                            </div>
+                            <p class="text-light-muted fs-5 mb-5" id="gearDetailDesc">
+                                Tailored from low-drag high-durability fabrics with heavy-duty handles on shoulders and
+                                hips to allow instructors to assist stable positioning easily.
+                            </p>
+                        </div>
+
+                        <div class="border-top border-secondary pt-4 mt-auto">
+                            <div class="row g-3">
+                                <div class="col-6 col-sm-3">
+                                    <div class="small text-muted mb-1">Drag Coeff.</div>
+                                    <div class="fw-bold text-white" id="gearStatDrag">0.22 Cd</div>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="small text-muted mb-1">Weight</div>
+                                    <div class="fw-bold text-white" id="gearStatWeight">1.2 kg</div>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="small text-muted mb-1">Special Feature</div>
+                                    <div class="fw-bold text-white" id="gearStatFeature">Grab Handles</div>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <div class="small text-muted mb-1">Material</div>
+                                    <div class="fw-bold text-white" id="gearStatMaterial">Cordura / Spandex</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const gearData = {
+                suit: {
+                    title: "Professional Flight Suit",
+                    desc: "Tailored from low-drag high-durability fabrics with heavy-duty handles on shoulders and hips to allow instructors to assist stable positioning easily.",
+                    drag: "0.22 Cd",
+                    weight: "1.2 kg",
+                    feature: "Grab Handles",
+                    material: "Cordura / Spandex"
+                },
+                helmet: {
+                    title: "Advanced Aero Helmet",
+                    desc: "Impact-resistant full-face helmet with a wide-angle clear visor. Engineered with noise dampening and integrated communication systems for instructions.",
+                    drag: "0.08 Cd",
+                    weight: "0.8 kg",
+                    feature: "Bluetooth Audio",
+                    material: "Carbon Fiber"
+                },
+                goggles: {
+                    title: "High-Visibility Goggles",
+                    desc: "Premium anti-fog, scratch-resistant impact goggles that offer 180-degree peripheral vision. Features soft silicone seal to prevent drafts.",
+                    drag: "0.03 Cd",
+                    weight: "0.15 kg",
+                    feature: "Anti-Fog Coating",
+                    material: "Polycarbonate"
+                },
+                gloves: {
+                    title: "High-Grip Flight Gloves",
+                    desc: "Form-fitting gloves with textured palms for optimal grip and hand protection, designed to shield your hands from high-speed airflow.",
+                    drag: "0.02 Cd",
+                    weight: "0.1 kg",
+                    feature: "Touchscreen Tips",
+                    material: "Synthetic Leather"
+                }
+            };
+
+            function selectGear(type, element) {
+                document.querySelectorAll('.gear-item-card').forEach(el => el.classList.remove('active'));
+                element.classList.add('active');
+
+                const info = gearData[type];
+                document.getElementById('gearDetailTitle').innerText = info.title;
+                document.getElementById('gearDetailDesc').innerText = info.desc;
+                document.getElementById('gearStatDrag').innerText = info.drag;
+                document.getElementById('gearStatWeight').innerText = info.weight;
+                document.getElementById('gearStatFeature').innerText = info.feature;
+                document.getElementById('gearStatMaterial').innerText = info.material;
+
+                const icons = {
+                    suit: 'bi-person-badge',
+                    helmet: 'bi-headset',
+                    goggles: 'bi-eye',
+                    gloves: 'bi-hand-index-thumb'
+                };
+                document.getElementById('gearDetailIcon').className = 'bi ' + icons[type] + ' gear-detail-icon mb-3';
+            }
+        </script>
+    </section>
+
+    <!-- 3. Video Testimonials (Reused) -->
+    <section class="py-10 bg-darker">
+        <div class="container">
+            <div class="row align-items-center mb-5 pb-3 reveal-up">
+                <div class="col-md-8">
+                    <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Flyer Stories</h6>
+                    <h2 class="display-4 fw-bold">Watch The Action</h2>
+                </div>
+                <div class="col-md-4 text-md-end mt-4 mt-md-0">
+                    <a href="gallery.html" class="btn btn-outline-primary fw-bold">View Full Gallery</a>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div
+                        class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer shadow-lg border border-secondary">
+                        <img src="assets/images/pro_flyer.png" alt="Pro Flyer Video"
+                            class="img-fluid w-100 object-fit-cover" style="height: 400px; filter: brightness(0.6);">
+                        <div class="video-overlay position-absolute top-50 start-50 translate-middle">
+                            <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
+                                style="width: 80px; height: 80px; transition: all 0.3s ease;">
+                                <i class="bi bi-play-fill fs-1 ms-1"></i>
+                            </div>
+                        </div>
+                        <div class="video-info position-absolute bottom-0 start-0 w-100 p-4"
+                            style="background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, rgba(2,6,23,0) 100%);">
+                            <h4 class="text-white fw-bold mb-1">Advanced Dynamic Flying</h4>
+                            <p class="text-accent mb-0 fw-medium">Pro Session</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div
+                        class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer shadow-lg border border-secondary">
+                        <img src="assets/images/first_timer_flyer.png" alt="First Timer Video"
+                            class="img-fluid w-100 object-fit-cover" style="height: 400px; filter: brightness(0.6);">
+                        <div class="video-overlay position-absolute top-50 start-50 translate-middle">
+                            <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
+                                style="width: 80px; height: 80px; transition: all 0.3s ease;">
+                                <i class="bi bi-play-fill fs-1 ms-1"></i>
+                            </div>
+                        </div>
+                        <div class="video-info position-absolute bottom-0 start-0 w-100 p-4"
+                            style="background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, rgba(2,6,23,0) 100%);">
+                            <h4 class="text-white fw-bold mb-1">My First Flight!</h4>
+                            <p class="text-accent mb-0 fw-medium">First Time Flyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 5. Call To Action -->
+    <section class="py-10 position-relative cta-section overflow-hidden border-top border-secondary">
+        <div class="container position-relative z-1 text-center reveal-up">
+            <h2 class="display-3 fw-bold mb-4">Ready for Takeoff?</h2>
+            <p class="lead text-light-muted mb-5 max-w-2xl mx-auto">Book your flight today and experience the
+                impossible.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="pricing.html"
+                    class="btn btn-primary btn-lg px-5 py-3 fs-5 shadow-glow fw-bold rounded-pill">Book Now</a>
+                <a href="contact.html"
+                    class="btn btn-outline-secondary btn-lg px-5 py-3 fs-5 fw-bold rounded-pill">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker pt-10 pb-4 position-relative z-1">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-inline-flex align-items-center text-decoration-none mb-4"
+                        href="index.html">
+                        <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                        <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+                    </a>
+                    <p class="text-light-muted mb-4 pe-lg-4">Experience the pure thrill of human flight in our
+                        state-of-the-art vertical wind tunnel. Safe, fun, and unforgettable.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle"><i
+                                class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h5 class="fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="about.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">About Us</a>
+                        </li>
+                        <li><a href="pricing.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">Pricing</a>
+                        </li>
+                        <li><a href="gallery.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">Gallery</a>
+                        </li>
+                        <li><a href="contact.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="fw-bold mb-4">Experience</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="services.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">First
+                                Timers</a></li>
+                        <li><a href="services.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">Pro
+                                Flyers</a></li>
+                        <li><a href="services.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">Groups &
+                                Parties</a></li>
+                        <li><a href="services.html"
+                                class="text-light-muted text-decoration-none hover-primary transition-all">Corporate
+                                Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4 fs-5" style="color: var(--text-main);">Newsletter</h5>
+                    <p class="text-light-muted mb-4">Subscribe for special offers, pro flying tips, and event updates.</p>
+                    <form class="d-flex flex-column gap-3" action="#" method="POST">
+                        <input type="email" class="bg-transparent border-0 border-bottom border-secondary py-2 px-1 text-main-theme" placeholder="Email address" style="outline: none; color: var(--text-main);" required>
+                        <button type="submit" class="btn btn-primary fw-bold py-2.5 w-100">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="border-top border-secondary pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-light-muted mb-0 small">&copy; 2026 AeroFly Indoor Skydiving. All rights reserved.</p>
+                <div class="d-flex gap-4 small">
+                    <a href="#" class="text-light-muted text-decoration-none hover-primary">Privacy Policy</a>
+                    <a href="#" class="text-light-muted text-decoration-none hover-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

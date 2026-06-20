@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.removeAttribute('dir');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose your indoor skydiving flight package. From beginners to pro flyers, we have the perfect flight experience for you.">
+    <title>Pricing & Packages | AeroFly Indoor Skydiving</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-xl fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="index.html">
+                <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+            </a>
+            
+            <div class="nav-controls d-flex order-xl-last align-items-center">
+                <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                    RTL
+                </button>
+                <a href="login.html" class="btn btn-primary d-none d-sm-inline-flex px-4 fw-bold">Login</a>
+                <button class="navbar-toggler ms-2 shadow-none border-0 px-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="bi bi-list fs-1"></i>
+                </button>
+            </div>
+
+            <div class="offcanvas offcanvas-end glass-offcanvas" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-dark">
+                    <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasNavbarLabel">
+                        <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                        <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="index.html">Home</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="home-2.html">Home 2</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="about.html">About</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="services.html">Services</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link active fw-medium" aria-current="page" href="pricing.html">Packages</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="contact.html">Contact</a></li>
+                        <li class="nav-item mx-2 d-sm-none mt-3">
+                            <a href="login.html" class="btn btn-primary w-100">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero pt-10 pb-5 position-relative overflow-hidden">
+        <div class="hero-video-wrapper">
+            <div class="video-overlay" style="background: linear-gradient(180deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.7) 100%);"></div>
+            <img src="assets/images/pricing_hero_bg.png" alt="Pricing Background" class="hero-bg-img">
+        </div>
+        <div class="container position-relative z-1 pt-5 text-center">
+            <h1 class="display-3 fw-bold mb-3">Flight <span class="text-gradient">Packages</span></h1>
+            <p class="lead text-light-muted max-w-2xl mx-auto">Whether it's your first time or you're training for a competition, we have a package that fits your needs.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <div class="row g-4 justify-content-center align-items-center">
+                <!-- Beginner Package (Secondary) -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="pricing-card card h-100 bg-dark border border-secondary rounded-4 hover-lift">
+                        <div class="card-body p-5 d-flex flex-column">
+                            <h4 class="fw-bold mb-3 text-white">Beginner Flight</h4>
+                            <div class="pricing-price mb-4 d-flex align-items-end">
+                                <span class="display-4 fw-bold text-white mb-0 me-2">$69</span><span class="text-light-muted pb-2">/person</span>
+                            </div>
+                            <p class="text-light-muted mb-4 pb-3 border-bottom border-secondary">Perfect for first-time flyers looking for an introduction.</p>
+                            <ul class="list-unstyled mb-5 d-flex flex-column gap-3 flex-grow-1">
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">Training Included</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">2 Flight Sessions</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">Gear Rental</span></li>
+                                <li class="d-flex align-items-center text-muted"><i class="bi bi-x fs-4 me-2"></i> <span>High Flight</span></li>
+                                <li class="d-flex align-items-center text-muted"><i class="bi bi-x fs-4 me-2"></i> <span>Video Package</span></li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-outline-light btn-lg w-100 fw-bold mt-auto">Book Beginner</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Adventure Package (Primary / Popular) -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="pricing-card card popular-card bg-dark border-primary rounded-4 position-relative shadow-glow d-flex flex-column h-100" style="transform: scale(1.05); z-index: 2;">
+                        <div class="position-absolute top-0 start-50 translate-middle">
+                            <span class="badge bg-primary text-white px-4 py-2 rounded-pill fw-bold tracking-wide shadow">MOST POPULAR</span>
+                        </div>
+                        <div class="card-body p-5 pt-5 mt-2 d-flex flex-column">
+                            <h4 class="fw-bold mb-3 text-white">Adventure Package</h4>
+                            <div class="pricing-price mb-4 d-flex align-items-end">
+                                <span class="display-4 fw-bold text-primary mb-0 me-2">$129</span><span class="text-light-muted pb-2">/person</span>
+                            </div>
+                            <p class="text-light-muted mb-4 pb-3 border-bottom border-secondary">Double the flight time and add the thrilling High Flight.</p>
+                            <ul class="list-unstyled mb-5 d-flex flex-column gap-3 flex-grow-1">
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-primary me-2"></i> <span class="text-white">Training Included</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-primary me-2"></i> <span class="text-white">4 Flight Sessions</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-primary me-2"></i> <span class="text-white">Gear Rental</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-primary me-2"></i> <span class="text-white">High Flight Experience</span></li>
+                                <li class="d-flex align-items-center text-muted"><i class="bi bi-x fs-4 me-2"></i> <span>Video Package</span></li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-primary btn-lg w-100 fw-bold shadow-glow mt-auto">Book Adventure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pro Flyer Package (Secondary) -->
+                <div class="col-lg-4 col-md-6 reveal-up" style="transition-delay: 300ms;">
+                    <div class="pricing-card card h-100 bg-dark border border-secondary rounded-4 hover-lift">
+                        <div class="card-body p-5 d-flex flex-column">
+                            <h4 class="fw-bold mb-3 text-white">Pro Flyer</h4>
+                            <div class="pricing-price mb-4 d-flex align-items-end">
+                                <span class="display-4 fw-bold text-white mb-0 me-2">$249</span><span class="text-light-muted pb-2">/person</span>
+                            </div>
+                            <p class="text-light-muted mb-4 pb-3 border-bottom border-secondary">For enthusiasts wanting to learn advanced maneuvers.</p>
+                            <ul class="list-unstyled mb-5 d-flex flex-column gap-3 flex-grow-1">
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">1-on-1 Pro Coaching</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">10 Mins Block Time</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">Advanced Skills</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">Priority Access</span></li>
+                                <li class="d-flex align-items-center"><i class="bi bi-check fs-4 text-secondary me-2"></i> <span class="text-white">HD Video Included</span></li>
+                            </ul>
+                            <a href="booking.html" class="btn btn-outline-light btn-lg w-100 fw-bold mt-auto">Book Pro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Comparison -->
+    <section class="py-10 bg-darker">
+        <div class="container">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold">Compare Features</h2>
+                <p class="text-light-muted">Detailed breakdown of what is included in every package.</p>
+            </div>
+            
+            <div class="table-responsive reveal-up rounded-4 border border-secondary overflow-hidden">
+                <table class="table table-dark table-hover mb-0 align-middle text-center">
+                    <thead class="table-active">
+                        <tr>
+                            <th class="text-start p-4 border-end border-secondary" style="width: 40%;">Feature</th>
+                            <th class="p-4 border-end border-secondary">Beginner ($69)</th>
+                            <th class="p-4 border-end border-secondary bg-primary-alpha text-primary">Adventure ($129)</th>
+                            <th class="p-4">Pro ($249)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="border-top-0">
+                        <tr>
+                            <td class="text-start p-4 border-end border-secondary text-light-muted">Flight Sessions</td>
+                            <td class="p-4 border-end border-secondary fw-bold">2</td>
+                            <td class="p-4 border-end border-secondary bg-primary-alpha fw-bold text-white">4</td>
+                            <td class="p-4 fw-bold">10 Mins Block</td>
+                        </tr>
+                        <tr>
+                            <td class="text-start p-4 border-end border-secondary text-light-muted">Pre-Flight Training</td>
+                            <td class="p-4 border-end border-secondary"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                            <td class="p-4 border-end border-secondary bg-primary-alpha"><i class="bi bi-check-circle-fill text-primary fs-5"></i></td>
+                            <td class="p-4"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start p-4 border-end border-secondary text-light-muted">Flight Gear Rental</td>
+                            <td class="p-4 border-end border-secondary"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                            <td class="p-4 border-end border-secondary bg-primary-alpha"><i class="bi bi-check-circle-fill text-primary fs-5"></i></td>
+                            <td class="p-4"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start p-4 border-end border-secondary text-light-muted">High Flight Experience</td>
+                            <td class="p-4 border-end border-secondary"><i class="bi bi-dash text-muted fs-4"></i></td>
+                            <td class="p-4 border-end border-secondary bg-primary-alpha"><i class="bi bi-check-circle-fill text-primary fs-5"></i></td>
+                            <td class="p-4"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start p-4 border-end border-secondary text-light-muted">Personalized Coaching</td>
+                            <td class="p-4 border-end border-secondary"><i class="bi bi-dash text-muted fs-4"></i></td>
+                            <td class="p-4 border-end border-secondary bg-primary-alpha"><i class="bi bi-dash text-muted fs-4"></i></td>
+                            <td class="p-4"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start p-4 border-end border-secondary text-light-muted">HD Video Download</td>
+                            <td class="p-4 border-end border-secondary">Add $15</td>
+                            <td class="p-4 border-end border-secondary bg-primary-alpha">Add $15</td>
+                            <td class="p-4"><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wind Tunnel Uses Section -->
+    <section class="py-10 bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold mb-3">Versatile <span class="text-gradient">Applications</span></h2>
+                <p class="text-light-muted max-w-2xl mx-auto">Discover the diverse ways our state-of-the-art vertical wind tunnel is utilized by different flyers.</p>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <!-- Use 1: First-Timers & Recreation -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 100ms;">
+                    <div class="card h-100 bg-dark border border-secondary rounded-4 hover-lift p-4 text-center">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary-alpha text-primary rounded-circle mb-4 mx-auto" style="width: 70px; height: 70px;">
+                            <i class="bi bi-rocket-takeoff fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-white">Recreation & Fun</h4>
+                        <p class="text-light-muted mb-0 small">Perfect for birthday parties, family gatherings, unique date nights, or checking off a bucket list experience in a safe environment.</p>
+                    </div>
+                </div>
+
+                <!-- Use 2: Sport & Professional Training -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 200ms;">
+                    <div class="card h-100 bg-dark border border-secondary rounded-4 hover-lift p-4 text-center">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary-alpha text-primary rounded-circle mb-4 mx-auto" style="width: 70px; height: 70px;">
+                            <i class="bi bi-trophy fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-white">Professional Sport</h4>
+                        <p class="text-light-muted mb-0 small">Indoor skydiving is a recognized sport. Professional flyers use wind tunnels to master advanced 3D maneuvers and formation flying.</p>
+                    </div>
+                </div>
+
+                <!-- Use 3: Military & Tactical Prep -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 300ms;">
+                    <div class="card h-100 bg-dark border border-secondary rounded-4 hover-lift p-4 text-center">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary-alpha text-primary rounded-circle mb-4 mx-auto" style="width: 70px; height: 70px;">
+                            <i class="bi bi-shield-check fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-white">Tactical Training</h4>
+                        <p class="text-light-muted mb-0 small">Military paratroopers and search & rescue teams utilize the wind tunnel to practice body stabilization and jump maneuvers with full combat gear.</p>
+                    </div>
+                </div>
+
+                <!-- Use 4: Fitness & Rehabilitation -->
+                <div class="col-lg-3 col-md-6 reveal-up" style="transition-delay: 400ms;">
+                    <div class="card h-100 bg-dark border border-secondary rounded-4 hover-lift p-4 text-center">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-primary-alpha text-primary rounded-circle mb-4 mx-auto" style="width: 70px; height: 70px;">
+                            <i class="bi bi-heart-pulse fs-2"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-white">Fitness & Therapy</h4>
+                        <p class="text-light-muted mb-0 small">Flying engages core muscles, improves balance, and serves as an inspiring adaptive recreation tool for individuals with physical challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frequently Asked Questions Section -->
+    <section class="py-10 bg-darker border-top border-secondary">
+        <div class="container">
+            <div class="text-center mb-5 reveal-up">
+                <h2 class="display-5 fw-bold mb-3">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="text-light-muted max-w-2xl mx-auto">Everything you need to know before stepping into our flight chamber.</p>
+            </div>
+            
+            <div class="max-w-800 mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="card bg-dark border border-secondary rounded-4 mb-3 reveal-up">
+                    <button class="w-100 text-start bg-transparent border-0 p-4 text-white d-flex justify-content-between align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">
+                        <span class="fw-bold fs-5 text-main-theme">Is indoor skydiving safe?</span>
+                        <i class="bi bi-chevron-down text-primary fs-5 transition-all"></i>
+                    </button>
+                    <div id="faq-1" class="collapse">
+                        <div class="p-4 pt-0 text-light-muted border-top border-secondary-alpha">
+                            Yes, indoor skydiving is extremely safe. You will be accompanied by a certified flight instructor at all times inside the wind tunnel, and the environment is highly controlled. Full safety gear, including a helmet, goggles, and flight suit, is provided.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="card bg-dark border border-secondary rounded-4 mb-3 reveal-up">
+                    <button class="w-100 text-start bg-transparent border-0 p-4 text-white d-flex justify-content-between align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
+                        <span class="fw-bold fs-5 text-main-theme">Are there weight or age limits?</span>
+                        <i class="bi bi-chevron-down text-primary fs-5 transition-all"></i>
+                    </button>
+                    <div id="faq-2" class="collapse">
+                        <div class="p-4 pt-0 text-light-muted border-top border-secondary-alpha">
+                            Flyers must be at least 3 years old. The maximum weight limit is typically 260 lbs (117 kg) for safety reasons, but please contact us if you have any questions or require special accommodations.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="card bg-dark border border-secondary rounded-4 mb-3 reveal-up">
+                    <button class="w-100 text-start bg-transparent border-0 p-4 text-white d-flex justify-content-between align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
+                        <span class="fw-bold fs-5 text-main-theme">What should I wear for my flight?</span>
+                        <i class="bi bi-chevron-down text-primary fs-5 transition-all"></i>
+                    </button>
+                    <div id="faq-3" class="collapse">
+                        <div class="p-4 pt-0 text-light-muted border-top border-secondary-alpha">
+                            We recommend comfortable, casual clothes (like t-shirts and jeans or activewear) and lace-up sneakers. Avoid shoes with open toes, heels, or boots. We will provide the flight suit to wear over your clothing.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="card bg-dark border border-secondary rounded-4 mb-3 reveal-up">
+                    <button class="w-100 text-start bg-transparent border-0 p-4 text-white d-flex justify-content-between align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">
+                        <span class="fw-bold fs-5 text-main-theme">How long does a flight session last?</span>
+                        <i class="bi bi-chevron-down text-primary fs-5 transition-all"></i>
+                    </button>
+                    <div id="faq-4" class="collapse">
+                        <div class="p-4 pt-0 text-light-muted border-top border-secondary-alpha">
+                            Each individual flight session lasts 60 seconds—which is actually longer than the freefall portion of a typical tandem skydive (about 45 seconds). Depending on your package, you will get multiple flight sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="card bg-dark border border-secondary rounded-4 mb-3 reveal-up">
+                    <button class="w-100 text-start bg-transparent border-0 p-4 text-white d-flex justify-content-between align-items-center collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">
+                        <span class="fw-bold fs-5 text-main-theme">Can I fly with friends or family?</span>
+                        <i class="bi bi-chevron-down text-primary fs-5 transition-all"></i>
+                    </button>
+                    <div id="faq-5" class="collapse">
+                        <div class="p-4 pt-0 text-light-muted border-top border-secondary-alpha">
+                            While training and individual flight sessions inside the tunnel are done 1-on-1 with an instructor for safety, your group will be together in the flight chamber viewing area, and you will take turns flying.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker pt-10 pb-4 position-relative z-1">
+        <div class="container">
+            <div class="row g-5 mb-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand d-inline-flex align-items-center text-decoration-none mb-4" href="index.html">
+                        <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                        <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+                    </a>
+                    <p class="text-light-muted mb-4 pe-lg-4">Experience the pure thrill of human flight in our state-of-the-art vertical wind tunnel. Safe, fun, and unforgettable.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle text-white"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle text-white"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="btn btn-icon btn-outline-secondary rounded-circle text-white"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h5 class="text-white fw-bold mb-4">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="about.html" class="text-light-muted text-decoration-none hover-primary transition-all">About Us</a></li>
+                        <li><a href="pricing.html" class="text-light-muted text-decoration-none hover-primary transition-all">Pricing</a></li>
+                        <li><a href="gallery.html" class="text-light-muted text-decoration-none hover-primary transition-all">Gallery</a></li>
+                        <li><a href="contact.html" class="text-light-muted text-decoration-none hover-primary transition-all">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5 class="text-white fw-bold mb-4">Experience</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="services.html" class="text-light-muted text-decoration-none hover-primary transition-all">First Timers</a></li>
+                        <li><a href="services.html" class="text-light-muted text-decoration-none hover-primary transition-all">Pro Flyers</a></li>
+                        <li><a href="services.html" class="text-light-muted text-decoration-none hover-primary transition-all">Groups & Parties</a></li>
+                        <li><a href="services.html" class="text-light-muted text-decoration-none hover-primary transition-all">Corporate Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="fw-bold mb-4 fs-5" style="color: var(--text-main);">Newsletter</h5>
+                    <p class="text-light-muted mb-4">Subscribe for special offers, pro flying tips, and event updates.</p>
+                    <form class="d-flex flex-column gap-3" action="#" method="POST">
+                        <input type="email" class="bg-transparent border-0 border-bottom border-secondary py-2 px-1 text-main-theme" placeholder="Email address" style="outline: none; color: var(--text-main);" required>
+                        <button type="submit" class="btn btn-primary fw-bold py-2.5 w-100">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4 mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-light-muted mb-0 small">&copy; 2026 AeroFly Indoor Skydiving. All rights reserved.</p>
+                <div class="d-flex gap-4 small">
+                    <a href="#" class="text-light-muted text-decoration-none hover-white">Privacy Policy</a>
+                    <a href="#" class="text-light-muted text-decoration-none hover-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

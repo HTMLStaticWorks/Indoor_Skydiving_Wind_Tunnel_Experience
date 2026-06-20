@@ -1,1 +1,688 @@
-Indoor_Skydiving_Wind_Tunnel_Experience
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.removeAttribute('dir');
+            }
+        })();
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Experience the thrill of human flight in a safe, state-of-the-art indoor skydiving wind tunnel.">
+    <title>Indoor Skydiving & Wind Tunnel Experience</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="navbar navbar-expand-xl fixed-top glass-nav">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex align-items-center text-decoration-none" href="#">
+                <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+            </a>
+
+            <div class="nav-controls d-flex order-xl-last align-items-center">
+                <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                    RTL
+                </button>
+                <a href="login.html" class="btn btn-primary d-none d-sm-inline-flex px-4 fw-bold">Login</a>
+                <button class="navbar-toggler ms-2 shadow-none border-0 px-2" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <i class="bi bi-list fs-1"></i>
+                </button>
+            </div>
+
+            <div class="offcanvas offcanvas-end glass-offcanvas" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header border-bottom border-dark">
+                    <h5 class="offcanvas-title d-flex align-items-center" id="offcanvasNavbarLabel">
+                        <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                        <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+                    </h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                        <li class="nav-item mx-2"><a class="nav-link active fw-medium" aria-current="page"
+                                href="index.html">Home</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="home-2.html">Home 2</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="about.html">About</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="services.html">Services</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="pricing.html">Packages</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="gallery.html">Gallery</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="contact.html">Contact</a></li>
+                        <li class="nav-item mx-2 d-sm-none mt-3">
+                            <a href="login.html" class="btn btn-primary w-100">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section d-flex align-items-center">
+        <div class="hero-video-wrapper">
+            <div class="video-overlay"></div>
+            <img src="assets/images/hero_wind_tunnel.png"
+                alt="Indoor Skydiving" class="hero-bg-img">
+        </div>
+        <div class="container position-relative z-1">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 reveal-left">
+                    <span class="badge badge-accent mb-3 px-3 py-2 rounded-pill fw-medium tracking-wide">PREMIUM FLIGHT
+                        EXPERIENCE</span>
+                    <h1 class="display-1 fw-bold mb-4 text-white">Experience the Thrill of <span
+                            class="text-gradient">Human Flight</span></h1>
+                    <p class="lead mb-5 text-white pe-lg-5" style="opacity: 0.8;">Feel the sensation of freefall in a
+                        safe, state-of-the-art wind tunnel. Defy gravity and embrace the ultimate adventure.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="pricing.html" class="btn btn-primary btn-lg px-5 shadow-glow fw-bold">Book Your
+                            Flight</a>
+                        <a href="#testimonials" class="btn btn-outline-light btn-lg px-4 fw-medium"><i
+                                class="bi bi-play-circle me-2"></i> Watch Video</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 reveal-right">
+                    <div class="position-relative">
+                        <img src="assets/images/hero_flyer_right.png"
+                            alt="Indoor Skydiving Flyer"
+                            class="img-fluid rounded-4 shadow-xl border border-secondary"
+                            style="max-height: 500px; width: 100%; object-fit: cover;">
+                        <!-- Floating Badge -->
+                        <div class="position-absolute top-0 end-0 mt-4 me-4 glass-card rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
+                            <div class="bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 40px; height: 40px;">
+                                <i class="bi bi-wind"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold" style="color: var(--text-main);">180 MPH</h6>
+                                <small class="text-muted">Max Wind Speed</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Indoor Skydiving -->
+    <section id="about" class="py-10">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">About The Experience</h6>
+                <h2 class="display-4 fw-bold">Defy Gravity Without the Parachute</h2>
+            </div>
+
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 reveal-left">
+                    <div class="image-stack position-relative">
+                        <img src="assets/images/first_timer_flyer.png"
+                            alt="Skydiving in tunnel"
+                            class="img-fluid rounded-4 shadow-lg img-main w-100 object-fit-cover"
+                            style="height: 500px;">
+                        <div
+                            class="experience-badge glass-card p-4 rounded-4 position-absolute bottom-0 end-0 translate-middle-y me-n4 shadow-xl">
+                            <h3 class="display-5 text-accent fw-bold mb-0">10+</h3>
+                            <p class="mb-0 text-white fw-medium">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 ps-lg-5 reveal-right">
+                    <p class="mb-4 text-light-muted fs-5">Indoor skydiving is the simulation of true freefall conditions
+                        in a vertical wind tunnel. The invention of modern wind tunnels has given everyone the power of
+                        flight.</p>
+
+                    <ul class="list-unstyled mb-5">
+                        <li class="d-flex mb-4 align-items-start">
+                            <div
+                                class="icon-box me-4 bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center p-3 fs-3">
+                                <i class="bi bi-wind"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-2">State-of-the-Art Technology</h4>
+                                <p class="text-light-muted mb-0">Our vertical wind tunnel generates smooth, wall-to-wall
+                                    airflow for a perfectly stable flying environment.</p>
+                            </div>
+                        </li>
+                        <li class="d-flex mb-4 align-items-start">
+                            <div
+                                class="icon-box me-4 bg-accent-alpha text-accent rounded-circle d-flex align-items-center justify-content-center p-3 fs-3">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-2">100% Safe for Everyone</h4>
+                                <p class="text-light-muted mb-0">Suitable for ages 3 to 103, no previous experience
+                                    required. Certified pros guide you every step.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="#how-it-works"
+                            class="btn btn-secondary btn-lg px-4 fw-bold shadow-glow-secondary">Discover How It
+                            Works</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. How It Works -->
+    <section id="how-it-works" class="py-10 bg-darker">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Process</h6>
+                <h2 class="display-4 fw-bold">Your Flight Journey</h2>
+            </div>
+
+            <div class="row g-4 position-relative process-timeline">
+                <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay: 100ms;">
+                    <div class="process-card text-center h-100 p-4 p-xl-5 glass-card rounded-4 border-0 hover-lift">
+                        <div class="process-icon mb-4 mx-auto bg-dark border border-secondary text-white rounded-circle d-flex align-items-center justify-content-center fs-2 position-relative shadow-lg"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-calendar-check"></i>
+                            <span
+                                class="step-num position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent text-dark border border-dark">01</span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Check-In</h4>
+                        <p class="text-light-muted mb-0">Arrive 45 minutes prior to your flight time. Meet your
+                            instructor and check in.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay: 200ms;">
+                    <div class="process-card text-center h-100 p-4 p-xl-5 glass-card rounded-4 border-0 hover-lift">
+                        <div class="process-icon mb-4 mx-auto bg-dark border border-secondary text-white rounded-circle d-flex align-items-center justify-content-center fs-2 position-relative shadow-lg"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-person-video3"></i>
+                            <span
+                                class="step-num position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent text-dark border border-dark">02</span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Training</h4>
+                        <p class="text-light-muted mb-0">Learn the basic flying positions and hand signals in a
+                            15-minute briefing session.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay: 300ms;">
+                    <div class="process-card text-center h-100 p-4 p-xl-5 glass-card rounded-4 border-0 hover-lift">
+                        <div class="process-icon mb-4 mx-auto bg-dark border border-secondary text-white rounded-circle d-flex align-items-center justify-content-center fs-2 position-relative shadow-lg"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-universal-access"></i>
+                            <span
+                                class="step-num position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent text-dark border border-dark">03</span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Gear Up</h4>
+                        <p class="text-light-muted mb-0">Suit up! We provide your flight suit, helmet, and goggles.
+                            Bring lace-up sneakers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay: 400ms;">
+                    <div class="process-card text-center h-100 p-4 p-xl-5 glass-card rounded-4 border-0 hover-lift">
+                        <div class="process-icon mb-4 mx-auto bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fs-2 position-relative shadow-glow"
+                            style="width: 80px; height: 80px;">
+                            <i class="bi bi-rocket-takeoff"></i>
+                            <span
+                                class="step-num position-absolute top-0 start-100 translate-middle badge rounded-pill bg-accent text-dark border border-dark">04</span>
+                        </div>
+                        <h4 class="fw-bold mb-3">Fly!</h4>
+                        <p class="text-light-muted mb-0">Lean into the wind and experience the incredible sensation of
+                            human flight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Safety First Section -->
+    <section id="safety" class="py-10">
+        <div class="container">
+            <div class="glass-card p-5 rounded-5 overflow-hidden position-relative border-accent-glow reveal-up p-xl-5">
+                <!-- Section Heading centered above columns -->
+                <div class="text-center mb-5 pb-3 z-1 position-relative">
+                    <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Peace of mind</h6>
+                    <h2 class="display-4 fw-bold text-white">Safety is Our DNA</h2>
+                </div>
+
+                <div class="row align-items-center z-1 position-relative p-lg-4 pt-0">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <p class="text-light-muted mb-4 fs-5">Your well-being is our top priority. Our facility uses
+                            advanced aerospace engineering to provide a smooth, controlled environment.</p>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                            <li class="d-flex align-items-center"><i
+                                    class="bi bi-check-circle-fill text-accent fs-4 me-3"></i> <span
+                                    class="fw-medium fs-5 text-white">IBA Certified Instructors</span></li>
+                            <li class="d-flex align-items-center"><i
+                                    class="bi bi-check-circle-fill text-accent fs-4 me-3"></i> <span
+                                    class="fw-medium fs-5 text-white">Real-time Wind Speed Control</span></li>
+                            <li class="d-flex align-items-center"><i
+                                    class="bi bi-check-circle-fill text-accent fs-4 me-3"></i> <span
+                                    class="fw-medium fs-5 text-white">Safety Briefing Before Every Flight</span></li>
+                            <li class="d-flex align-items-center"><i
+                                    class="bi bi-check-circle-fill text-accent fs-4 me-3"></i> <span
+                                    class="fw-medium fs-5 text-white">Impact-Absorbing Netting System</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div
+                                    class="stat-card text-center p-4 rounded-4 bg-dark border border-secondary hover-lift">
+                                    <h3 class="display-5 fw-bold text-white mb-1">1M+</h3>
+                                    <span class="text-secondary fw-medium">Safe Flights</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div
+                                    class="stat-card text-center p-4 rounded-4 bg-dark border border-secondary hover-lift">
+                                    <h3 class="display-5 fw-bold text-white mb-1">500+</h3>
+                                    <span class="text-secondary fw-medium">Pro Flyers</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div
+                                    class="stat-card text-center p-4 rounded-4 bg-dark border border-secondary hover-lift">
+                                    <h3 class="display-5 fw-bold text-white mb-1">0</h3>
+                                    <span class="text-secondary fw-medium">Previous Experience Needed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glow-orb position-absolute top-0 end-0 translate-middle"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 6. Physics of Flight -->
+    <section id="physics" class="py-10 position-relative">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Education</h6>
+                <h2 class="display-4 fw-bold">The Science of Freefall</h2>
+            </div>
+
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 reveal-left">
+                    <p class="text-light-muted mb-4 fs-5 pe-lg-4">Understanding the physics makes you a better flyer.
+                        Learn how aerodynamics keep you suspended in mid-air.</p>
+                    <div class="d-none d-lg-block mt-5 position-relative">
+                        <img src="assets/images/pro_flyer.png"
+                            alt="Aerodynamics" class="img-fluid rounded-4 shadow-xl w-100 object-fit-cover"
+                            style="height: 350px; filter: grayscale(100%) contrast(1.2);">
+                        <div class="glow-orb position-absolute top-50 start-50 translate-middle"
+                            style="width: 200px; height: 200px; z-index: -1;"></div>
+                    </div>
+                </div>
+                <div class="col-lg-7 reveal-right">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="physics-card p-4 p-xl-5 rounded-4 glass-card border-0 hover-lift h-100">
+                                <div class="icon-circle bg-primary-alpha text-primary mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-2"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="bi bi-arrow-up-circle"></i>
+                                </div>
+                                <h4 class="fw-bold text-white mb-3">Lift & Drag</h4>
+                                <p class="text-light-muted mb-0">The upward force of the wind (lift) matches the
+                                    downward force of gravity. Drag stabilizes your body.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="physics-card p-4 p-xl-5 rounded-4 glass-card border-0 hover-lift h-100">
+                                <div class="icon-circle bg-accent-alpha text-accent mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-2"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="bi bi-wind"></i>
+                                </div>
+                                <h4 class="fw-bold text-white mb-3">Airflow Mechanics</h4>
+                                <p class="text-light-muted mb-0">Four massive fans push air through a closed loop,
+                                    creating a smooth column of air in the flight chamber.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="physics-card p-4 p-xl-5 rounded-4 glass-card border-0 hover-lift h-100">
+                                <div class="icon-circle bg-secondary-alpha text-secondary mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-2"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="bi bi-person-arms-up"></i>
+                                </div>
+                                <h4 class="fw-bold text-white mb-3">Body Positioning</h4>
+                                <p class="text-light-muted mb-0">Arching your back and spreading limbs creates a stable
+                                    surface area, allowing you to float effortlessly.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="physics-card p-4 p-xl-5 rounded-4 glass-card border-0 hover-lift h-100">
+                                <div class="icon-circle bg-light-alpha text-white mb-4 rounded-circle d-inline-flex align-items-center justify-content-center fs-2"
+                                    style="width: 60px; height: 60px;">
+                                    <i class="bi bi-speedometer2"></i>
+                                </div>
+                                <h4 class="fw-bold text-white mb-3">Terminal Velocity</h4>
+                                <p class="text-light-muted mb-0">Speeds range from 100 to 160 mph, precisely calibrated
+                                    to your body weight to achieve perfect terminal velocity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Video Testimonials -->
+    <section id="testimonials" class="py-10 bg-darker">
+        <div class="container">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Experiences</h6>
+                <h2 class="display-4 fw-bold">Don't Just Take Our Word</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4 reveal-up" style="transition-delay: 100ms;">
+                    <div class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer">
+                        <img src="assets/images/first_timer_flyer.png"
+                            alt="Customer Video" class="img-fluid w-100 object-fit-cover"
+                            style="height: 450px; filter: brightness(0.6);">
+                        <div class="video-overlay position-absolute top-50 start-50 translate-middle">
+                            <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
+                                style="width: 70px; height: 70px; transition: all 0.3s ease;">
+                                <i class="bi bi-play-fill fs-1 ms-1"></i>
+                            </div>
+                        </div>
+                        <div class="video-info position-absolute bottom-0 start-0 w-100 p-4"
+                            style="background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, rgba(2,6,23,0) 100%);">
+                            <h4 class="text-white fw-bold mb-1">First Time Flyer!</h4>
+                            <p class="text-accent mb-0 fw-medium">Sarah & Family</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal-up" style="transition-delay: 200ms;">
+                    <div class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer">
+                        <img src="assets/images/team_building.png"
+                            alt="Corporate Event" class="img-fluid w-100 object-fit-cover"
+                            style="height: 450px; filter: brightness(0.6);">
+                        <div class="video-overlay position-absolute top-50 start-50 translate-middle">
+                            <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
+                                style="width: 70px; height: 70px; transition: all 0.3s ease;">
+                                <i class="bi bi-play-fill fs-1 ms-1"></i>
+                            </div>
+                        </div>
+                        <div class="video-info position-absolute bottom-0 start-0 w-100 p-4"
+                            style="background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, rgba(2,6,23,0) 100%);">
+                            <h4 class="text-white fw-bold mb-1">Team Building</h4>
+                            <p class="text-accent mb-0 fw-medium">TechCorp Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 reveal-up" style="transition-delay: 300ms;">
+                    <div class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer">
+                        <img src="assets/images/pro_flyer.png"
+                            alt="Pro Flyer" class="img-fluid w-100 object-fit-cover"
+                            style="height: 450px; filter: brightness(0.6);">
+                        <div class="video-overlay position-absolute top-50 start-50 translate-middle">
+                            <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
+                                style="width: 70px; height: 70px; transition: all 0.3s ease;">
+                                <i class="bi bi-play-fill fs-1 ms-1"></i>
+                            </div>
+                        </div>
+                        <div class="video-info position-absolute bottom-0 start-0 w-100 p-4"
+                            style="background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, rgba(2,6,23,0) 100%);">
+                            <h4 class="text-white fw-bold mb-1">Training for Nationals</h4>
+                            <p class="text-accent mb-0 fw-medium">Mike D., Pro Flyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Photo Gallery -->
+    <!-- <section id="gallery" class="py-10">
+        <div class="container-fluid px-xl-5">
+            <div class="row g-4 masonry-grid">
+                <div class="col-md-6 col-lg-4 col-xl-3 reveal-up">
+                    <div class="gallery-item position-relative overflow-hidden rounded-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1520114093959-1e35dcd5a89e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid w-100 object-fit-cover" alt="Gallery Image" style="height: 400px; transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 bg-primary-alpha opacity-0 d-flex align-items-center justify-content-center transition-all">
+                            <i class="bi bi-zoom-in fs-1 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item position-relative overflow-hidden rounded-4">
+                        <img src="https://images.unsplash.com/photo-1526401485004-46910ecc8e51?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="img-fluid w-100 object-fit-cover" alt="Gallery Image" style="height: 300px; transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 bg-primary-alpha opacity-0 d-flex align-items-center justify-content-center transition-all">
+                            <i class="bi bi-zoom-in fs-1 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 reveal-up" style="transition-delay: 100ms;">
+                    <div class="gallery-item position-relative overflow-hidden rounded-4 h-100">
+                        <img src="https://images.unsplash.com/photo-1544605481-81d77a0c1fce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image" style="transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 bg-primary-alpha opacity-0 d-flex align-items-center justify-content-center transition-all">
+                            <i class="bi bi-zoom-in fs-1 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 reveal-up" style="transition-delay: 200ms;">
+                    <div class="gallery-item position-relative overflow-hidden rounded-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1517436073-3b1b1b1b1b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="img-fluid w-100 object-fit-cover" alt="Gallery Image" style="height: 300px; transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 bg-primary-alpha opacity-0 d-flex align-items-center justify-content-center transition-all">
+                            <i class="bi bi-zoom-in fs-1 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item position-relative overflow-hidden rounded-4">
+                        <img src="https://images.unsplash.com/photo-1605333100808-11d21051fa47?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" class="img-fluid w-100 object-fit-cover" alt="Gallery Image" style="height: 400px; transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 bg-primary-alpha opacity-0 d-flex align-items-center justify-content-center transition-all">
+                            <i class="bi bi-zoom-in fs-1 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-3 d-lg-none d-xl-block reveal-up" style="transition-delay: 300ms;">
+                    <div class="gallery-item position-relative overflow-hidden rounded-4 h-100">
+                        <img src="https://images.unsplash.com/photo-1520114093959-1e35dcd5a89e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=800&q=80" class="img-fluid w-100 h-100 object-fit-cover" alt="Gallery Image" style="filter: hue-rotate(180deg); transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 bg-primary-alpha opacity-0 d-flex align-items-center justify-content-center transition-all">
+                            <i class="bi bi-zoom-in fs-1 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-light btn-lg px-5">View Full Gallery</a>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 9. Why Choose Us -->
+    <section class="py-10 bg-darker position-relative">
+        <div class="container z-1 position-relative">
+            <div class="text-center mb-5 pb-3 reveal-up">
+                <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Features</h6>
+                <h2 class="display-4 fw-bold">Why AeroFly?</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2 reveal-up" style="transition-delay: 100ms;">
+                    <div
+                        class="feature-icon-card text-center p-4 p-xl-5 h-100 glass-card rounded-4 border-0 hover-lift">
+                        <i class="bi bi-fan display-4 text-primary mb-3 d-block"></i>
+                        <h5 class="fw-bold text-white mb-0 mt-3">World-Class<br>Tunnel</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal-up" style="transition-delay: 200ms;">
+                    <div
+                        class="feature-icon-card text-center p-4 p-xl-5 h-100 glass-card rounded-4 border-0 hover-lift">
+                        <i class="bi bi-award display-4 text-accent mb-3 d-block"></i>
+                        <h5 class="fw-bold text-white mb-0 mt-3">Certified<br>Instructors</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal-up" style="transition-delay: 300ms;">
+                    <div
+                        class="feature-icon-card text-center p-4 p-xl-5 h-100 glass-card rounded-4 border-0 hover-lift">
+                        <i class="bi bi-camera-video display-4 text-secondary mb-3 d-block"></i>
+                        <h5 class="fw-bold text-white mb-0 mt-3">HD Flight<br>Videos</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal-up" style="transition-delay: 400ms;">
+                    <div
+                        class="feature-icon-card text-center p-4 p-xl-5 h-100 glass-card rounded-4 border-0 hover-lift">
+                        <i class="bi bi-people display-4 text-primary mb-3 d-block"></i>
+                        <h5 class="fw-bold text-white mb-0 mt-3">Family<br>Friendly</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal-up" style="transition-delay: 500ms;">
+                    <div
+                        class="feature-icon-card text-center p-4 p-xl-5 h-100 glass-card rounded-4 border-0 hover-lift">
+                        <i class="bi bi-building display-4 text-accent mb-3 d-block"></i>
+                        <h5 class="fw-bold text-white mb-0 mt-3">Corporate<br>Events</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 reveal-up" style="transition-delay: 600ms;">
+                    <div
+                        class="feature-icon-card text-center p-4 p-xl-5 h-100 glass-card rounded-4 border-0 hover-lift">
+                        <i class="bi bi-gift display-4 text-secondary mb-3 d-block"></i>
+                        <h5 class="fw-bold text-white mb-0 mt-3">Birthday<br>Packages</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="glow-orb position-absolute top-50 start-0 translate-middle-y" style="background: var(--secondary);">
+        </div>
+    </section>
+
+
+
+    <!-- 11. Call To Action -->
+    <!-- <section class="py-10 position-relative cta-section overflow-hidden">
+        <div class="cta-bg-image position-absolute w-100 h-100 top-0 start-0 z-0" style="background: url('https://images.unsplash.com/photo-1605333100808-11d21051fa47?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat; filter: brightness(0.3);"></div>
+        <div class="container position-relative z-1 text-center reveal-up">
+            <div class="glass-card p-5 p-md-5 py-xl-10 rounded-5 border-accent-glow max-w-800 mx-auto">
+                <h2 class="display-3 fw-bold mb-4 text-white">Ready to Fly?</h2>
+                <p class="lead text-light-muted mb-5 fs-4 px-md-5">Join thousands of others who have experienced the ultimate thrill. Book your flight today and make memories that will last a lifetime.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-4">
+                    <a href="pricing.html" class="btn btn-primary btn-lg px-5 py-3 fs-5 shadow-glow fw-bold">Book Now</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-lg px-5 py-3 fs-5 fw-bold">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- 12. Footer -->
+    <footer class="bg-darker pt-10 pb-4 position-relative">
+        <div class="container">
+            <div class="row g-5 mb-5 pb-5 border-bottom border-dark">
+                <div class="col-lg-4 pe-xl-5">
+                    <a class="navbar-brand d-inline-flex align-items-center text-decoration-none mb-4" href="#">
+                        <i class="bi bi-wind me-2 fs-3 text-primary"></i>
+                        <span class="fs-4 fw-bold text-gradient">AeroFly</span>
+                    </a>
+                    <p class="text-light-muted mb-4 fs-6">Experience the impossible. Premium indoor skydiving facilities
+                        designed for safety, thrills, and unforgettable moments.</p>
+                    <div class="social-links d-flex gap-3">
+                        <a href="#"
+                            class="btn btn-icon btn-outline-secondary rounded-circle text-white border-secondary hover-bg-primary"><i
+                                class="bi bi-instagram fs-5"></i></a>
+                        <a href="#"
+                            class="btn btn-icon btn-outline-secondary rounded-circle text-white border-secondary hover-bg-primary"><i
+                                class="bi bi-facebook fs-5"></i></a>
+                        <a href="#"
+                            class="btn btn-icon btn-outline-secondary rounded-circle text-white border-secondary hover-bg-primary"><i
+                                class="bi bi-tiktok fs-5"></i></a>
+                        <a href="#"
+                            class="btn btn-icon btn-outline-secondary rounded-circle text-white border-secondary hover-bg-primary"><i
+                                class="bi bi-youtube fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mt-lg-5">
+                    <h5 class="text-white fw-bold mb-4 fs-4">Quick Links</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-3"><a href="#about"
+                                class="text-light-muted text-decoration-none hover-text-primary transition-all">About
+                                Us</a></li>
+                        <li class="mb-3"><a href="pricing.html"
+                                class="text-light-muted text-decoration-none hover-text-primary transition-all">Pricing
+                                & Packages</a></li>
+                        <li class="mb-3"><a href="about.html"
+                                class="text-light-muted text-decoration-none hover-text-primary transition-all">About Us
+                                Detail</a></li>
+                        <li class="mb-3"><a href="#"
+                                class="text-light-muted text-decoration-none hover-text-primary transition-all">Waivers</a>
+                        </li>
+                        <li class="mb-3"><a href="#"
+                                class="text-light-muted text-decoration-none hover-text-primary transition-all">Gift
+                                Cards</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-lg-5">
+                    <h5 class="text-white fw-bold mb-4 fs-4">Contact Info</h5>
+                    <ul class="list-unstyled text-light-muted">
+                        <li class="mb-4 d-flex align-items-start"><i class="bi bi-geo-alt fs-5 text-primary me-3"></i>
+                            <span>123 Skydiving Lane,<br>Adventure City, AC 90210</span></li>
+                        <li class="mb-4 d-flex align-items-center"><i
+                                class="bi bi-telephone fs-5 text-primary me-3"></i> <span>(555) 123-4567</span></li>
+                        <li class="mb-4 d-flex align-items-center"><i class="bi bi-envelope fs-5 text-primary me-3"></i>
+                            <span>fly@aerofly.com</span></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-lg-5">
+                    <h5 class="fw-bold mb-4 fs-5" style="color: var(--text-main);">Newsletter</h5>
+                    <p class="text-light-muted mb-4">Subscribe for exclusive offers and flight tips.</p>
+                    <form class="d-flex flex-column gap-3" action="#" method="POST">
+                        <input type="email" class="bg-transparent border-0 border-bottom border-secondary py-2 px-1 text-main-theme" placeholder="Email address" style="outline: none; color: var(--text-main);" required>
+                        <button type="submit" class="btn btn-primary fw-bold py-2.5 w-100">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="text-muted mb-3 mb-md-0">&copy; 2026 AeroFly Indoor Skydiving. All rights reserved.</p>
+                <div class="d-flex gap-4">
+                    <a href="#" class="text-muted text-decoration-none hover-text-white transition-all">Privacy
+                        Policy</a>
+                    <a href="#" class="text-muted text-decoration-none hover-text-white transition-all">Terms of
+                        Service</a>
+                </div>
+            </div>
+        </div>
+        <button id="backToTop"
+            class="btn btn-primary rounded-circle shadow-glow position-absolute bottom-0 end-0 m-4 me-xl-5 mb-xl-5 d-flex align-items-center justify-content-center"
+            style="width: 50px; height: 50px; opacity: 0; pointer-events: none; transition: all 0.3s ease;"
+            aria-label="Back to top">
+            <i class="bi bi-arrow-up fs-4"></i>
+        </button>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
