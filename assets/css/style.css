@@ -63,14 +63,25 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
     /* Offset for fixed header */
+    overflow-x: clip !important;
+    width: 100%;
 }
 
 body {
     font-family: var(--font-body);
     background-color: var(--bg-main);
     color: var(--text-main);
-    overflow-x: hidden;
+    overflow-x: clip !important;
+    width: 100%;
+    position: relative;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section,
+.container,
+.container-fluid,
+.row {
+    max-width: 100%;
 }
 
 h1,
@@ -241,27 +252,74 @@ h1,
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.glass-nav {
+.glass-nav,
+.navbar.fixed-top {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    background: var(--glass-bg) !important;
-    border-bottom: 1px solid var(--border-color);
+    background: rgba(17, 17, 17, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     padding: 0.5rem 0 !important;
-    z-index: 1030 !important;
+    z-index: 99997 !important;
     transition: background-color 0.3s ease;
 }
 
-@media (min-width: 1200px) {
-    .glass-nav {
-        backdrop-filter: blur(15px) !important;
-        -webkit-backdrop-filter: blur(15px) !important;
-    }
+[data-theme="light"] .glass-nav,
+[data-theme="light"] .navbar.fixed-top {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 .glass-nav.scrolled {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(17, 17, 17, 0.96) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="light"] .glass-nav.scrolled {
+    background: rgba(255, 255, 255, 0.98) !important;
+}
+
+/* --- Offcanvas & Scroll Lock Overrides --- */
+.offcanvas {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    z-index: 99999 !important;
+}
+
+.offcanvas-backdrop {
+    z-index: 99998 !important;
+}
+
+.offcanvas-body {
+    overflow-y: auto !important;
+}
+
+body.offcanvas-open {
+    overflow: hidden !important;
+}
+
+@media (max-width: 1199px) {
+    .navbar .container {
+        max-width: 100% !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .nav-controls {
+        gap: 0.4rem !important;
+    }
+
+    .btn-icon {
+        padding: 0.45rem 0.65rem !important;
+    }
+
+    .offcanvas {
+        width: 320px !important;
+        max-width: 85vw !important;
+    }
 }
 
 .navbar-brand {
@@ -1026,9 +1084,9 @@ button:not(.collapsed) .bi-chevron-down {
    ========================================================================== */
 
 /* 1. Global text and placeholder contrast adjustments for Light Mode */
-[data-theme="light"] .text-white:not(.btn):not(.badge):not(.step-num):not(.roadmap-step-circle):not(.bi-zoom-in),
-[data-theme="light"] .text-light:not(.btn):not(.badge):not(.step-num):not(.roadmap-step-circle):not(.bi-zoom-in),
-[data-theme="light"] .text-white-50:not(.btn):not(.badge):not(.step-num):not(.roadmap-step-circle):not(.bi-zoom-in) {
+[data-theme="light"] .text-white:not(.btn):not(.badge):not(.step-num):not(.roadmap-step-circle):not(.bi-zoom-in):not(.video-card *):not(.video-card),
+[data-theme="light"] .text-light:not(.btn):not(.badge):not(.step-num):not(.roadmap-step-circle):not(.bi-zoom-in):not(.video-card *):not(.video-card),
+[data-theme="light"] .text-white-50:not(.btn):not(.badge):not(.step-num):not(.roadmap-step-circle):not(.bi-zoom-in):not(.video-card *):not(.video-card) {
     color: var(--text-main) !important;
 }
 
@@ -1304,14 +1362,51 @@ button:not(.collapsed) .bi-chevron-down {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
 }
 
-/* 2. Fix hamburger icon color and alignment for navbar toggler */
+/* 2. Fix hamburger icon color, alignment, and styling for navbar toggler */
 .navbar-toggler {
     color: var(--text-main) !important;
+    background-color: transparent !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 0.75rem !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 0.25rem 0.5rem !important;
-    border-radius: 0.75rem !important;
+    padding: 0.5rem 0.75rem !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    background-color: rgba(var(--primary-rgb), 0.1) !important;
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.15);
+}
+
+/* 2b. Premium mobile offcanvas navigation styling */
+@media (max-width: 1199.98px) {
+    .glass-offcanvas .navbar-nav {
+        padding: 1.5rem 0.5rem;
+    }
+    .glass-offcanvas .nav-item {
+        margin-bottom: 0.5rem;
+    }
+    .glass-offcanvas .nav-link {
+        padding: 0.75rem 1rem !important;
+        border-radius: 0.5rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-offcanvas .nav-link:hover,
+    .glass-offcanvas .nav-link.active {
+        background: rgba(var(--primary-rgb), 0.1) !important;
+        color: var(--primary) !important;
+        padding-left: 1.5rem !important; /* Premium slide-in effect */
+    }
+    /* Reverse slide-in direction for RTL mode */
+    html[dir="rtl"] .glass-offcanvas .nav-link:hover,
+    html[dir="rtl"] .glass-offcanvas .nav-link.active {
+        padding-left: 1rem !important;
+        padding-right: 1.5rem !important;
+    }
 }
 
 /* 3. Fix offcanvas / modal close button visibility in dark theme */

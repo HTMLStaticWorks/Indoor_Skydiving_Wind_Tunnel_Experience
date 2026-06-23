@@ -2,13 +2,8 @@
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
-window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
-});
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.scrollTo(0, 0);
     const htmlElement = document.documentElement;
     
     // --- 1. Navbar Scroll Effect ---
@@ -162,6 +157,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+    }
+
+    // --- 7. Lock page scroll when offcanvas menu opens ---
+    const offcanvasElement = document.getElementById('offcanvasNavbar');
+    if (offcanvasElement) {
+        offcanvasElement.addEventListener('show.bs.offcanvas', () => {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        });
+        offcanvasElement.addEventListener('hidden.bs.offcanvas', () => {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         });
     }
 
