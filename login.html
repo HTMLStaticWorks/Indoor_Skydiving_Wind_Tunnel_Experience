@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
             const savedDir = localStorage.getItem('dir');
@@ -18,15 +19,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Log in to AeroFly Indoor Skydiving to manage your bookings and account.">
     <title>Login | AeroFly Indoor Skydiving</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
@@ -35,7 +38,7 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
-    
+
     <style>
         .login-container {
             max-width: 480px;
@@ -43,6 +46,7 @@
             padding: 2.5rem;
             margin: 2rem auto;
         }
+
         .form-control {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -50,18 +54,21 @@
             border-radius: 0.75rem;
             padding: 0.75rem 1rem;
         }
+
         .form-control:focus {
             background-color: var(--bg-secondary);
             border-color: var(--primary);
             color: var(--text-main);
             box-shadow: 0 0 0 0.25rem rgba(var(--primary-rgb), 0.25);
         }
+
         .input-group-text {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
             color: var(--text-muted);
             border-radius: 0.75rem;
         }
+
         .social-btn {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
@@ -75,11 +82,13 @@
             gap: 0.5rem;
             transition: all 0.2s ease;
         }
+
         .social-btn:hover {
             background-color: var(--bg-tertiary);
             border-color: var(--primary);
             color: var(--text-main);
         }
+
         /* Top right controls container */
         .page-controls {
             position: absolute;
@@ -87,19 +96,22 @@
             right: 1.5rem;
             z-index: 1000;
         }
+
         /* RTL style adjustment */
         html[dir="rtl"] .page-controls {
             right: auto;
             left: 1.5rem;
         }
+
         /* Handle input-group border radius in RTL */
-        html[dir="rtl"] .input-group > .form-control {
+        html[dir="rtl"] .input-group>.form-control {
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
             border-top-right-radius: 0.75rem !important;
             border-bottom-right-radius: 0.75rem !important;
         }
-        html[dir="rtl"] .input-group > .btn {
+
+        html[dir="rtl"] .input-group>.btn {
             border-top-right-radius: 0 !important;
             border-bottom-right-radius: 0 !important;
             border-top-left-radius: 0.75rem !important;
@@ -107,21 +119,27 @@
         }
     </style>
 </head>
+
 <body class="min-vh-100 d-flex align-items-center justify-content-center position-relative py-5">
 
     <!-- Theme & RTL Toggles (Top Right Corner, absolute) -->
     <div class="page-controls d-flex align-items-center gap-2">
-        <button id="theme-toggle" class="btn btn-outline-secondary px-3 py-2 d-flex align-items-center justify-content-center" style="border-radius: 0.75rem;" aria-label="Toggle Theme">
+        <button id="theme-toggle"
+            class="btn btn-outline-secondary px-3 py-2 d-flex align-items-center justify-content-center"
+            style="border-radius: 0.75rem;" aria-label="Toggle Theme">
             <i class="bi bi-sun-fill"></i>
         </button>
-        <button id="rtl-toggle" class="btn btn-outline-secondary px-3 py-2 fw-bold" style="border-radius: 0.75rem;" aria-label="Toggle RTL">
+        <button id="rtl-toggle" class="btn btn-outline-secondary px-3 py-2 fw-bold" style="border-radius: 0.75rem;"
+            aria-label="Toggle RTL">
             RTL
         </button>
     </div>
 
     <!-- Background Orbs -->
-    <div class="glow-orb position-absolute top-0 start-0 translate-middle" style="opacity: 0.1; width: 400px; height: 400px;"></div>
-    <div class="glow-orb position-absolute bottom-0 end-0 translate-middle-y" style="opacity: 0.1; width: 400px; height: 400px; background: var(--secondary);"></div>
+    <div class="glow-orb position-absolute top-0 start-0 translate-middle"
+        style="opacity: 0.1; width: 400px; height: 400px;"></div>
+    <div class="glow-orb position-absolute bottom-0 end-0 translate-middle-y"
+        style="opacity: 0.1; width: 400px; height: 400px; background: var(--secondary);"></div>
 
     <!-- Login Card -->
     <div class="container d-flex justify-content-center align-items-center">
@@ -141,15 +159,20 @@
                 <!-- Email Input -->
                 <div class="mb-3">
                     <label for="email" class="form-label text-main-theme fw-medium small">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com"
+                        required>
                 </div>
 
                 <!-- Password Input with Toggle -->
                 <div class="mb-3">
                     <label for="password" class="form-label text-main-theme fw-medium small mb-1">Password</label>
                     <div class="input-group">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
-                        <button class="btn btn-outline-secondary border-secondary px-3" type="button" id="toggle-password" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0.75rem; border-bottom-right-radius: 0.75rem;">
+                        <input type="password" id="password" name="password" class="form-control"
+                            placeholder="Enter password" required
+                            style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                        <button class="btn btn-outline-secondary border-secondary px-3" type="button"
+                            id="toggle-password"
+                            style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0.75rem; border-bottom-right-radius: 0.75rem;">
                             <i class="bi bi-eye"></i>
                         </button>
                     </div>
@@ -158,7 +181,8 @@
                 <!-- Remember Me & Forgot Password -->
                 <div class="mb-4 d-flex justify-content-between align-items-center">
                     <div class="form-check">
-                        <input class="form-check-input bg-transparent border-secondary" type="checkbox" id="remember-me" name="remember-me">
+                        <input class="form-check-input bg-transparent border-secondary" type="checkbox" id="remember-me"
+                            name="remember-me">
                         <label class="form-check-label text-light-muted small" for="remember-me">
                             Remember me
                         </label>
@@ -167,7 +191,8 @@
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow-glow mb-4">Log In</button>
+                <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-3 shadow-glow mb-4">Log
+                    In</button>
 
                 <!-- Social Logins -->
                 <div class="mb-4">
@@ -188,7 +213,8 @@
 
                 <!-- Signup Link -->
                 <div class="text-center">
-                    <p class="text-light-muted mb-0 small">Don't have an account? <a href="signup.html" class="text-primary text-decoration-none fw-medium hover-text-white">Sign up</a></p>
+                    <p class="text-light-muted mb-0 small">Don't have an account? <a href="signup.html"
+                            class="text-primary text-decoration-none fw-medium hover-text-white">Sign up</a></p>
                 </div>
             </form>
         </div>
@@ -196,13 +222,13 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
-    
+
     <!-- Password Visibility Toggle Script -->
     <script>
-        document.getElementById('toggle-password').addEventListener('click', function() {
+        document.getElementById('toggle-password').addEventListener('click', function () {
             const passwordInput = document.getElementById('password');
             const icon = this.querySelector('i');
             if (passwordInput.type === 'password') {
@@ -217,4 +243,5 @@
         });
     </script>
 </body>
+
 </html>

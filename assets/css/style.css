@@ -13,9 +13,9 @@
     --primary: #f97316;
     /* Action Orange */
     --primary-rgb: 249, 115, 22;
-    --secondary: #6b7280;
-    /* Cool Gray */
-    --secondary-rgb: 107, 114, 128;
+    --secondary: #94a3b8;
+    /* Slate Gray — improved contrast */
+    --secondary-rgb: 148, 163, 184;
 
     /* Status Colors */
     --success: #22c55e;
@@ -34,7 +34,7 @@
 
     /* Shadows */
     --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.4);
-    --shadow-glow-secondary: 0 0 20px rgba(107, 114, 128, 0.4);
+    --shadow-glow-secondary: 0 0 20px rgba(148, 163, 184, 0.4);
 
     /* Typography */
     --font-heading: 'Poppins', sans-serif;
@@ -47,7 +47,7 @@
     --bg-tertiary: #e5e7eb;
 
     --primary: #ea580c;
-    --secondary: #4b5563;
+    --secondary: #64748b;
 
     --text-main: #111111;
     --text-muted: #4b5563;
@@ -65,6 +65,7 @@ html {
     /* Offset for fixed header */
     overflow-x: clip !important;
     width: 100%;
+    max-width: 100vw;
 }
 
 body {
@@ -73,15 +74,30 @@ body {
     color: var(--text-main);
     overflow-x: clip !important;
     width: 100%;
+    max-width: 100vw;
     position: relative;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 section,
-.container,
-.container-fluid,
 .row {
     max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.container,
+.container-fluid {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding-inline-start: 2rem !important;
+    padding-inline-end: 2rem !important;
+}
+
+/* Prevent any element from overflowing the viewport */
+section {
+    overflow-x: clip;
 }
 
 h1,
@@ -112,7 +128,7 @@ h1,
 }
 
 .text-accent {
-    color: var(--secondary) !important;
+    color: var(--primary) !important;
 }
 
 /* mapped to secondary for compatibility */
@@ -133,7 +149,7 @@ h1,
 }
 
 .bg-accent {
-    background-color: var(--secondary) !important;
+    background-color: var(--primary) !important;
 }
 
 .badge.bg-accent {
@@ -202,7 +218,7 @@ h1,
 }
 
 .bg-accent-alpha {
-    background-color: rgba(var(--secondary-rgb), 0.1);
+    background-color: rgba(var(--primary-rgb), 0.1);
 }
 
 /* mapped to secondary */
@@ -367,11 +383,11 @@ body.offcanvas-open {
 }
 
 .reveal-left {
-    transform: translateX(-40px);
+    transform: translateX(-25px);
 }
 
 .reveal-right {
-    transform: translateX(40px);
+    transform: translateX(25px);
 }
 
 .reveal-up.active,
@@ -661,6 +677,10 @@ body.offcanvas-open {
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
 
+.video-card:hover .play-btn i {
+    color: var(--primary) !important;
+}
+
 .video-card img {
     transition: transform 0.5s ease;
 }
@@ -710,61 +730,81 @@ body.offcanvas-open {
 }
 
 /* RTL Support */
-/* RTL Support */
 html[dir="rtl"] {
     text-align: right;
+}
+
+/* Ensure English text elements render punctuation correctly in RTL mode while keeping alignment */
+html[dir="rtl"] p,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4,
+html[dir="rtl"] h5,
+html[dir="rtl"] h6,
+html[dir="rtl"] li,
+html[dir="rtl"] a:not(.btn-icon),
+html[dir="rtl"] span:not(.bi):not(.navbar-toggler-icon):not(.brand-icon) {
+    direction: ltr;
+    text-align: inherit;
 }
 
 html[dir="rtl"] .text-start {
     text-align: right !important;
 }
+
 html[dir="rtl"] .text-end {
     text-align: left !important;
 }
+
 @media (min-width: 576px) {
     html[dir="rtl"] .text-sm-start {
         text-align: right !important;
     }
+
     html[dir="rtl"] .text-sm-end {
         text-align: left !important;
     }
 }
+
 @media (min-width: 768px) {
     html[dir="rtl"] .text-md-start {
         text-align: right !important;
     }
+
     html[dir="rtl"] .text-md-end {
         text-align: left !important;
     }
 }
+
 @media (min-width: 992px) {
     html[dir="rtl"] .text-lg-start {
         text-align: right !important;
     }
+
     html[dir="rtl"] .text-lg-end {
         text-align: left !important;
     }
 }
+
 @media (min-width: 1200px) {
     html[dir="rtl"] .text-xl-start {
         text-align: right !important;
     }
+
     html[dir="rtl"] .text-xl-end {
         text-align: left !important;
     }
 }
 
-/* Offcanvas border override in RTL */
-html[dir="rtl"] .glass-offcanvas {
-    border-right: 1px solid rgba(128, 128, 128, 0.1) !important;
-    border-left: none !important;
-}
+/* Offcanvas border in RTL — handled in comprehensive RTL section below */
 
 /* Timeline vertical line position in RTL */
 html[dir="rtl"] .timeline-roadmap::before {
     right: 31px;
     left: auto;
 }
+
 @media (min-width: 768px) {
     html[dir="rtl"] .timeline-roadmap::before {
         right: 50%;
@@ -774,65 +814,285 @@ html[dir="rtl"] .timeline-roadmap::before {
 }
 
 html[dir="rtl"] .reveal-left {
-    transform: translateX(40px);
+    transform: translateX(15px);
 }
 
 html[dir="rtl"] .reveal-right {
-    transform: translateX(-40px);
+    transform: translateX(-15px);
 }
 
 html[dir="rtl"] .video-overlay {
-    background: linear-gradient(-90deg, var(--bg-main) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(17, 17, 17, 0.4) 100%);
+    background: linear-gradient(-90deg, rgba(17, 17, 17, 0.95) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(17, 17, 17, 0.4) 100%);
+}
+
+/* Hide hamburger toggler on desktop globally */
+@media (min-width: 1200px) {
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+
+/* Ensure proper gap in logo in RTL mode */
+html[dir="rtl"] .navbar-brand i {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+/* Change navbar expansion breakpoint to 1100px */
+@media (min-width: 1100px) {
+    .navbar-expand-xl {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+    }
+
+    .navbar-expand-xl .navbar-nav {
+        flex-direction: row;
+    }
+
+    .navbar-expand-xl .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+
+    .navbar-expand-xl .navbar-nav .nav-link {
+        padding-right: var(--bs-navbar-nav-link-padding-x);
+        padding-left: var(--bs-navbar-nav-link-padding-x);
+    }
+
+    .navbar-expand-xl .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+    }
+
+    .navbar-expand-xl .navbar-toggler {
+        display: none !important;
+    }
+
+    .navbar-expand-xl .offcanvas {
+        position: static;
+        z-index: auto;
+        flex-grow: 1;
+        width: auto !important;
+        height: auto !important;
+        visibility: visible !important;
+        background-color: transparent !important;
+        border: 0 !important;
+        transform: none !important;
+        transition: none !important;
+        backdrop-filter: none !important;
+    }
+
+    .navbar-expand-xl .offcanvas-header {
+        display: none;
+    }
+
+    .navbar-expand-xl .offcanvas-body {
+        display: flex;
+        flex-grow: 0;
+        padding: 0;
+        overflow-y: visible;
+    }
+
+    /* Override bootstrap utilities for 1100px breakpoint */
+    .d-xl-none {
+        display: none !important;
+    }
+
+    .d-none.d-xl-inline-flex {
+        display: inline-flex !important;
+    }
+}
+
+@media (max-width: 1099.98px) {
+
+    /* Force navbar-expand-xl to collapse below 1100px */
+    .navbar-expand-xl .navbar-toggler {
+        display: inline-flex !important;
+    }
+
+    /* Override bootstrap utilities for mobile below 1100px */
+    .d-xl-none {
+        display: block !important;
+    }
+
+    button.d-xl-none,
+    .btn.d-xl-none {
+        display: inline-flex !important;
+    }
+
+    .d-none.d-xl-inline-flex {
+        display: none !important;
+    }
 }
 
 /* RTL Spacing Utilities Overrides */
-html[dir="rtl"] .me-1 { margin-left: 0.25rem !important; margin-right: 0 !important; }
-html[dir="rtl"] .me-2 { margin-left: 0.5rem !important; margin-right: 0 !important; }
-html[dir="rtl"] .me-3 { margin-left: 1rem !important; margin-right: 0 !important; }
-html[dir="rtl"] .me-4 { margin-left: 1.5rem !important; margin-right: 0 !important; }
-html[dir="rtl"] .me-5 { margin-left: 3rem !important; margin-right: 0 !important; }
+html[dir="rtl"] .me-1 {
+    margin-left: 0.25rem !important;
+    margin-right: 0 !important;
+}
 
-html[dir="rtl"] .ms-1 { margin-right: 0.25rem !important; margin-left: 0 !important; }
-html[dir="rtl"] .ms-2 { margin-right: 0.5rem !important; margin-left: 0 !important; }
-html[dir="rtl"] .ms-3 { margin-right: 1rem !important; margin-left: 0 !important; }
-html[dir="rtl"] .ms-4 { margin-right: 1.5rem !important; margin-left: 0 !important; }
-html[dir="rtl"] .ms-5 { margin-right: 3rem !important; margin-left: 0 !important; }
+html[dir="rtl"] .me-2 {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
 
-html[dir="rtl"] .pe-1 { padding-left: 0.25rem !important; padding-right: 0 !important; }
-html[dir="rtl"] .pe-2 { padding-left: 0.5rem !important; padding-right: 0 !important; }
-html[dir="rtl"] .pe-3 { padding-left: 1rem !important; padding-right: 0 !important; }
-html[dir="rtl"] .pe-4 { padding-left: 1.5rem !important; padding-right: 0 !important; }
-html[dir="rtl"] .pe-5 { padding-left: 3rem !important; padding-right: 0 !important; }
+html[dir="rtl"] .me-3 {
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
+}
 
-html[dir="rtl"] .ps-1 { padding-right: 0.25rem !important; padding-left: 0 !important; }
-html[dir="rtl"] .ps-2 { padding-right: 0.5rem !important; padding-left: 0 !important; }
-html[dir="rtl"] .ps-3 { padding-right: 1rem !important; padding-left: 0 !important; }
-html[dir="rtl"] .ps-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
-html[dir="rtl"] .ps-5 { padding-right: 3rem !important; padding-left: 0 !important; }
+html[dir="rtl"] .me-4 {
+    margin-left: 1.5rem !important;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] .me-5 {
+    margin-left: 3rem !important;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] .ms-1 {
+    margin-right: 0.25rem !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .ms-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .ms-3 {
+    margin-right: 1rem !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .ms-4 {
+    margin-right: 1.5rem !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .ms-5 {
+    margin-right: 3rem !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .pe-1 {
+    padding-left: 0.25rem !important;
+    padding-right: 0 !important;
+}
+
+html[dir="rtl"] .pe-2 {
+    padding-left: 0.5rem !important;
+    padding-right: 0 !important;
+}
+
+html[dir="rtl"] .pe-3 {
+    padding-left: 1rem !important;
+    padding-right: 0 !important;
+}
+
+html[dir="rtl"] .pe-4 {
+    padding-left: 1.5rem !important;
+    padding-right: 0 !important;
+}
+
+html[dir="rtl"] .pe-5 {
+    padding-left: 3rem !important;
+    padding-right: 0 !important;
+}
+
+html[dir="rtl"] .ps-1 {
+    padding-right: 0.25rem !important;
+    padding-left: 0 !important;
+}
+
+html[dir="rtl"] .ps-2 {
+    padding-right: 0.5rem !important;
+    padding-left: 0 !important;
+}
+
+html[dir="rtl"] .ps-3 {
+    padding-right: 1rem !important;
+    padding-left: 0 !important;
+}
+
+html[dir="rtl"] .ps-4 {
+    padding-right: 1.5rem !important;
+    padding-left: 0 !important;
+}
+
+html[dir="rtl"] .ps-5 {
+    padding-right: 3rem !important;
+    padding-left: 0 !important;
+}
 
 /* Responsive padding/margin overrides */
 @media (min-width: 768px) {
-    html[dir="rtl"] .pe-md-4 { padding-left: 1.5rem !important; padding-right: 0 !important; }
-    html[dir="rtl"] .pe-md-5 { padding-left: 3rem !important; padding-right: 0 !important; }
-    html[dir="rtl"] .ps-md-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
-    html[dir="rtl"] .ps-md-5 { padding-right: 3rem !important; padding-left: 0 !important; }
+    html[dir="rtl"] .pe-md-4 {
+        padding-left: 1.5rem !important;
+        padding-right: 0 !important;
+    }
+
+    html[dir="rtl"] .pe-md-5 {
+        padding-left: 3rem !important;
+        padding-right: 0 !important;
+    }
+
+    html[dir="rtl"] .ps-md-4 {
+        padding-right: 1.5rem !important;
+        padding-left: 0 !important;
+    }
+
+    html[dir="rtl"] .ps-md-5 {
+        padding-right: 3rem !important;
+        padding-left: 0 !important;
+    }
 }
+
 @media (min-width: 992px) {
-    html[dir="rtl"] .pe-lg-4 { padding-left: 1.5rem !important; padding-right: 0 !important; }
-    html[dir="rtl"] .pe-lg-5 { padding-left: 3rem !important; padding-right: 0 !important; }
-    html[dir="rtl"] .ps-lg-4 { padding-right: 1.5rem !important; padding-left: 0 !important; }
-    html[dir="rtl"] .ps-lg-5 { padding-right: 3rem !important; padding-left: 0 !important; }
+    html[dir="rtl"] .pe-lg-4 {
+        padding-left: 1.5rem !important;
+        padding-right: 0 !important;
+    }
+
+    html[dir="rtl"] .pe-lg-5 {
+        padding-left: 3rem !important;
+        padding-right: 0 !important;
+    }
+
+    html[dir="rtl"] .ps-lg-4 {
+        padding-right: 1.5rem !important;
+        padding-left: 0 !important;
+    }
+
+    html[dir="rtl"] .ps-lg-5 {
+        padding-right: 3rem !important;
+        padding-left: 0 !important;
+    }
 }
+
 @media (min-width: 1200px) {
-    html[dir="rtl"] .pe-xl-5 { padding-left: 3rem !important; padding-right: 0 !important; }
-    html[dir="rtl"] .me-xl-5 { margin-left: 3rem !important; margin-right: 0 !important; }
+    html[dir="rtl"] .pe-xl-5 {
+        padding-left: 3rem !important;
+        padding-right: 0 !important;
+    }
+
+    html[dir="rtl"] .me-xl-5 {
+        margin-left: 3rem !important;
+        margin-right: 0 !important;
+    }
 }
 
 /* Additional RTL Layout Adjustments */
+
+/* Navbar brand: reverse icon/text order and fix spacing in RTL */
+html[dir="rtl"] .navbar-brand {
+    flex-direction: row-reverse;
+}
+
 html[dir="rtl"] .navbar-brand i,
 html[dir="rtl"] .navbar-brand svg {
-    margin-left: 0.75rem !important;
-    margin-right: 0 !important;
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
 }
 
 html[dir="rtl"] .list-unstyled,
@@ -849,17 +1109,34 @@ html[dir="rtl"] .list-unstyled.text-light-muted span {
 
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 1199px) {
+    .display-1 {
+        font-size: 3.5rem;
+    }
+
+    /* Add gaps between stacked col-xl columns inside g-5 rows below 1200px due to 0rem gutter override */
+    .row.g-5 > [class*="col-xl-"] + [class*="col-xl-"] {
+        margin-top: 3.5rem !important;
+    }
+}
+
+@media (max-width: 991px) {
     .display-1 {
         font-size: 3rem;
     }
+}
 
-    .display-3 {
+@media (max-width: 768px) {
+    .display-1 {
         font-size: 2.5rem;
     }
 
+    .display-3 {
+        font-size: 2.2rem;
+    }
+
     .display-4 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
 
@@ -1099,17 +1376,26 @@ button:not(.collapsed) .bi-chevron-down {
     background-color: var(--bg-main) !important;
 }
 
-[data-theme="light"] :not(.bg-dark):not(.page-hero):not(.hero-section):not(.cta-section):not(.table-dark) .btn-outline-light {
+[data-theme="light"] .btn-outline-light {
     border-color: var(--text-main) !important;
     color: var(--text-main) !important;
 }
 
-[data-theme="light"] :not(.bg-dark):not(.page-hero):not(.hero-section):not(.cta-section):not(.table-dark) .btn-outline-light:hover {
+[data-theme="light"] .btn-outline-light:hover {
     background-color: var(--text-main) !important;
     color: var(--bg-main) !important;
 }
 
-/* 2. Preserve/Force dark variables inside explicitly dark sections & components in Light Mode */
+[data-theme="light"] .bg-dark .btn-outline-light,
+[data-theme="light"] .bg-darker .btn-outline-light,
+[data-theme="light"] .page-hero .btn-outline-light,
+[data-theme="light"] .hero-section .btn-outline-light,
+[data-theme="light"] .cta-section .btn-outline-light,
+[data-theme="light"] .table-dark .btn-outline-light {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
 /* 2. Preserve/Force dark variables inside explicitly dark sections & components in Light Mode */
 [data-theme="light"] .page-hero,
 [data-theme="light"] .hero-section:not(.bg-darker),
@@ -1118,6 +1404,18 @@ button:not(.collapsed) .bi-chevron-down {
     --text-muted: #cbd5e1;
     --border-color: rgba(255, 255, 255, 0.15);
     color: #ffffff !important;
+}
+
+/* Fix outline light button text color on hover in light theme dark sections */
+[data-theme="light"] .bg-dark .btn-outline-light:hover,
+[data-theme="light"] .bg-darker .btn-outline-light:hover,
+[data-theme="light"] .page-hero .btn-outline-light:hover,
+[data-theme="light"] .hero-section .btn-outline-light:hover,
+[data-theme="light"] .cta-section .btn-outline-light:hover,
+[data-theme="light"] .table-dark .btn-outline-light:hover {
+    background-color: #ffffff6e !important;
+    border-color: #ffffff !important;
+    color: #111111 !important;
 }
 
 /* True Light Theme color changes for originally dark elements */
@@ -1333,6 +1631,18 @@ button:not(.collapsed) .bi-chevron-down {
     color: #111111 !important;
 }
 
+/* Ensure orange branding icons and accent text maintain their color in light mode glass cards */
+[data-theme="light"] .glass-card .text-primary,
+[data-theme="light"] .glass-card .text-accent,
+[data-theme="light"] .glass-card .icon-circle,
+[data-theme="light"] .glass-card .icon-circle i,
+[data-theme="light"] .bg-dark .glass-card .text-primary,
+[data-theme="light"] .bg-dark .glass-card .text-accent,
+[data-theme="light"] .bg-dark .glass-card .icon-circle,
+[data-theme="light"] .bg-dark .glass-card .icon-circle i {
+    color: var(--primary) !important;
+}
+
 [data-theme="light"] .glass-card .text-light-muted:not(.btn):not(.badge):not(.step-num):not(.video-card *),
 [data-theme="light"] .bg-dark .glass-card .text-light-muted:not(.btn):not(.badge):not(.step-num):not(.video-card *),
 [data-theme="light"] .bg-dark .glass-card p.text-light-muted:not(.btn):not(.badge):not(.step-num):not(.video-card *),
@@ -1362,6 +1672,35 @@ button:not(.collapsed) .bi-chevron-down {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
 }
 
+/* 1b. Fix select dropdown arrow visibility in light theme */
+[data-theme="light"] .form-select.bg-darker,
+[data-theme="light"] .form-select.bg-dark,
+[data-theme="light"] .form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23111111' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+/* 1c. Fix hover text color in light theme to prevent white-on-white text */
+[data-theme="light"] .hover-text-white:hover {
+    color: #111111 !important;
+}
+
+[data-theme="light"] .page-hero .hover-text-white:hover,
+[data-theme="light"] .hero-section:not(.bg-darker) .hover-text-white:hover,
+[data-theme="light"] .cta-section:has(.cta-bg-image) .hover-text-white:hover {
+    color: #ffffff !important;
+}
+
+/* 1d. Unify form checkboxes to use brand accent colors and glows */
+.form-check-input:checked {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.form-check-input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-rgb), 0.25) !important;
+}
+
 /* 2. Fix hamburger icon color, alignment, and styling for navbar toggler */
 .navbar-toggler {
     color: var(--text-main) !important;
@@ -1387,20 +1726,25 @@ button:not(.collapsed) .bi-chevron-down {
     .glass-offcanvas .navbar-nav {
         padding: 1.5rem 0.5rem;
     }
+
     .glass-offcanvas .nav-item {
         margin-bottom: 0.5rem;
     }
+
     .glass-offcanvas .nav-link {
         padding: 0.75rem 1rem !important;
         border-radius: 0.5rem;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .glass-offcanvas .nav-link:hover,
     .glass-offcanvas .nav-link.active {
         background: rgba(var(--primary-rgb), 0.1) !important;
         color: var(--primary) !important;
-        padding-left: 1.5rem !important; /* Premium slide-in effect */
+        padding-left: 1.5rem !important;
+        /* Premium slide-in effect */
     }
+
     /* Reverse slide-in direction for RTL mode */
     html[dir="rtl"] .glass-offcanvas .nav-link:hover,
     html[dir="rtl"] .glass-offcanvas .nav-link.active {
@@ -1510,11 +1854,805 @@ html[dir="rtl"] .comparison-container td:first-child {
 
 /* Animation for the swipe hint icon */
 @keyframes swipeHint {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(6px);
+    }
 }
 
 .animate-swipe {
     display: inline-block;
     animation: swipeHint 1.5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   A. MOBILE CENTERING — Fix Left-Aligned Appearance on Small Screens
+   ========================================================================== */
+
+/* Center section headings, badges, and subheadings on mobile */
+@media (max-width: 991px) {
+
+    .page-hero .container,
+    .hero-section .container {
+        text-align: center;
+    }
+
+    /* Premium spacious padding for the hero section on mobile */
+    .hero-section {
+        padding-top: 100px !important;
+    }
+
+    /* Generous spacing and vertical rhythm for hero content on mobile */
+    .hero-section .badge {
+        margin-bottom: 2rem !important;
+    }
+
+    .hero-section h1 {
+        margin-bottom: 2rem !important;
+        line-height: 1.25 !important;
+    }
+
+    .hero-section p.lead {
+        margin-bottom: 3rem !important;
+        line-height: 1.7 !important;
+        font-size: 1.15rem !important;
+    }
+
+    /* Generous gaps between stacked buttons on mobile */
+    .hero-section .d-flex.flex-wrap.gap-3 {
+        gap: 1.5rem !important;
+    }
+
+    /* Add a nice gap between the buttons column and the image column on mobile */
+    .hero-section .row > div + div {
+        margin-top: 3.5rem !important;
+    }
+
+    /* Add gaps between stacked col-lg columns inside g-5 rows on mobile due to 0rem gutter override */
+    .row.g-5 > [class*="col-lg-"] + [class*="col-lg-"] {
+        margin-top: 3rem !important;
+    }
+
+    /* Service cards: center content on mobile */
+    .service-card .p-5,
+    .service-card .p-4 {
+        text-align: center;
+    }
+
+    .service-card .icon-circle,
+    .service-card .d-inline-flex {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Center all glass-card, bg-dark card content on mobile */
+    .process-card,
+    .physics-card,
+    .feature-icon-card,
+    .team-card,
+    .pricing-card .card-body,
+    .gear-item-card {
+        text-align: center;
+    }
+
+    /* Stack and center gear explorer cards on mobile view */
+    .gear-item-card {
+        flex-direction: column !important;
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+
+    /* Center icon circles on mobile */
+    .icon-circle {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Center the "About" section list items on mobile */
+    #about .list-unstyled li.d-flex {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    #about .list-unstyled li.d-flex .icon-box {
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
+    }
+
+    /* Center the "Safety" section checkmark list */
+    #safety .list-unstyled li.d-flex {
+        justify-content: center;
+    }
+
+    /* Center buttons on mobile */
+    .text-center.mt-auto a.btn,
+    #about .text-center a.btn {
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* Footer: center all columns on mobile */
+    footer .col-lg-4,
+    footer .col-lg-2,
+    footer .col-lg-3,
+    footer .col-md-6 {
+        text-align: center;
+    }
+
+    footer .social-links {
+        justify-content: center !important;
+    }
+
+    footer .navbar-brand {
+        justify-content: center;
+    }
+
+    footer .list-unstyled li.d-flex {
+        justify-content: center;
+    }
+
+    footer .d-flex.flex-column.flex-md-row {
+        text-align: center;
+    }
+
+    footer .d-flex.gap-4 {
+        justify-content: center;
+    }
+
+    /* "Your Flight Journey" step cards */
+    .col-md-6.col-lg-6.col-xl-2 .p-4 {
+        text-align: center;
+    }
+
+    /* Premium Upgrades cards */
+    .col-md-6.col-lg-3 .p-5 {
+        text-align: center;
+    }
+
+    /* Contact form section */
+    .col-lg-7.reveal-left,
+    .col-lg-5.reveal-right {
+        text-align: center;
+    }
+
+    .col-lg-5.reveal-right .d-flex.align-items-start {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    .col-lg-5.reveal-right .icon-circle {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 1rem;
+    }
+
+    /* Contact page: center "Follow Us" */
+    .col-lg-5.reveal-right h5.text-center.text-lg-start {
+        text-align: center !important;
+    }
+
+    .col-lg-5.reveal-right .d-flex.gap-3.justify-content-center.justify-content-lg-start {
+        justify-content: center !important;
+    }
+
+    /* Location cards centering */
+    .col-md-4 .glass-card .p-4 {
+        text-align: center;
+    }
+
+    .col-md-4 .glass-card .d-inline-flex.flex-column {
+        align-items: center !important;
+    }
+
+    .col-md-4 .glass-card .d-inline-flex .d-flex.align-items-start {
+        justify-content: center;
+    }
+
+    /* About page: team card centering */
+    .team-card {
+        text-align: center;
+    }
+
+    /* About page: Mission section */
+    .col-lg-6.ps-lg-5.reveal-right {
+        text-align: center;
+    }
+
+    .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start i {
+        margin-right: 0 !important;
+        margin-bottom: 0.75rem;
+    }
+
+    /* Pricing list items centering */
+    .pricing-card .list-unstyled li.d-flex {
+        justify-content: center;
+    }
+
+    /* Wind Tunnel Uses cards */
+    .card.h-100.bg-dark.border.border-secondary.rounded-4.hover-lift.p-4 {
+        text-align: center;
+    }
+
+    /* FAQ section centering */
+    .max-w-800 .card button {
+        text-align: center;
+    }
+
+    /* Physics cards */
+    .physics-card {
+        text-align: center;
+    }
+
+    .physics-card .icon-circle {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Hero section on mobile: center content */
+    .hero-section .col-lg-7 {
+        text-align: center;
+    }
+
+    .hero-section .d-flex.flex-wrap.gap-3 {
+        justify-content: center;
+    }
+
+    .hero-section .badge {
+        display: inline-block;
+    }
+
+    /* Roadmap timeline on mobile: center */
+    .timeline-roadmap .row .col-md-5 {
+        text-align: center !important;
+    }
+
+    .timeline-roadmap .roadmap-card {
+        text-align: center !important;
+    }
+
+    .timeline-roadmap .p-4.bg-dark {
+        text-align: center;
+    }
+
+    .timeline-roadmap .list-unstyled li {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Add gaps between stacked col-md columns inside g-5 rows on tablet/mobile due to 0rem gutter override */
+    .row.g-5 > [class*="col-md-"] + [class*="col-md-"] {
+        margin-top: 2.5rem !important;
+    }
+}
+
+/* Extra small screen adjustments */
+@media (max-width: 575px) {
+    .hero-section .col-lg-7 h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    footer .col-lg-4,
+    footer .col-lg-2,
+    footer .col-lg-3 {
+        text-align: center;
+    }
+
+    .pricing-card .card-body {
+        padding: 1.5rem !important;
+    }
+}
+
+/* ==========================================================================
+   B. COMPREHENSIVE RTL LAYOUT FIXES
+   ========================================================================== */
+
+/* --- B0. Global RTL containment — prevent overflow/clipping on ALL pages --- */
+html[dir="rtl"] {
+    overflow-x: clip !important;
+    max-width: 100vw;
+}
+
+html[dir="rtl"] body {
+    overflow-x: clip !important;
+    max-width: 100vw;
+    text-align: right;
+}
+
+html[dir="rtl"] section {
+    overflow-x: clip !important;
+    max-width: 100%;
+}
+
+/* Custom overrides for .g-5 globally to match devtools configuration */
+.g-5,
+.gy-5 {
+    --bs-gutter-y: 0rem !important;
+}
+
+.g-5,
+.gx-5 {
+    --bs-gutter-x: 0rem !important;
+}
+
+/* Container padding handled globally with logical properties */
+
+/* Force all large display headings to wrap in RTL */
+html[dir="rtl"] .display-1,
+html[dir="rtl"] .display-2,
+html[dir="rtl"] .display-3,
+html[dir="rtl"] .display-4,
+html[dir="rtl"] .display-5,
+html[dir="rtl"] .display-6,
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
+/* Ensure page-hero sections don't overflow in RTL */
+html[dir="rtl"] .page-hero {
+    overflow: hidden !important;
+}
+
+/* Ensure hero background images stay contained */
+html[dir="rtl"] .hero-video-wrapper {
+    overflow: hidden;
+}
+
+/* Ensure rows stay within containers in RTL */
+html[dir="rtl"] .row {
+    overflow-x: clip;
+}
+
+/* Ensure images don't overflow in RTL */
+html[dir="rtl"] img {
+    max-width: 100%;
+}
+
+/* --- B1. Core flex direction reversals for RTL --- */
+
+/* Footer contact info: reverse icon + text rows */
+html[dir="rtl"] footer .list-unstyled li.d-flex,
+html[dir="rtl"] .col-lg-5.reveal-right .d-flex.align-items-start,
+html[dir="rtl"] .col-lg-3 .list-unstyled li.d-flex {
+    flex-direction: row-reverse;
+}
+
+/* About page: feature list icon + text reversal */
+html[dir="rtl"] #about .list-unstyled li.d-flex,
+html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start,
+html[dir="rtl"] .col-lg-6.reveal-right .d-flex.align-items-start {
+    flex-direction: row-reverse;
+}
+
+/* Safety section checkmark list reversal */
+html[dir="rtl"] #safety .list-unstyled li.d-flex {
+    flex-direction: row-reverse;
+}
+
+/* Pricing feature list reversal */
+html[dir="rtl"] .pricing-card .list-unstyled li.d-flex {
+    flex-direction: row-reverse;
+}
+
+/* Contact location cards */
+html[dir="rtl"] .col-md-4 .glass-card .d-flex.align-items-start {
+    flex-direction: row-reverse;
+}
+
+/* FAQ accordion button — text right, chevron left in RTL */
+html[dir="rtl"] .max-w-800 .card button.d-flex,
+html[dir="rtl"] .card button[data-bs-toggle="collapse"] {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+/* --- B2. Offcanvas: open from left side in RTL --- */
+html[dir="rtl"] .offcanvas-end {
+    right: auto !important;
+    left: 0 !important;
+    transform: translateX(-100%);
+}
+
+html[dir="rtl"] .offcanvas-end.show,
+html[dir="rtl"] .offcanvas-end.showing {
+    transform: translateX(0);
+}
+
+html[dir="rtl"] .offcanvas-end.hiding {
+    transform: translateX(-100%);
+}
+
+/* Fix offcanvas border for RTL */
+@media (max-width: 1199.98px) {
+    html[dir="rtl"] .glass-offcanvas {
+        border-left: 1px solid rgba(128, 128, 128, 0.1) !important;
+        border-right: none !important;
+    }
+}
+
+/* --- B3. Position swaps (start↔end) for RTL --- */
+/* NOTE: Only target SPECIFIC elements, not broad .end-0 selectors */
+
+/* Back to top button: move to left side in RTL */
+html[dir="rtl"] #backToTop {
+    right: auto !important;
+    left: 1rem !important;
+}
+
+/* Glow orbs: cosmetic, safe to flip */
+html[dir="rtl"] .glow-orb.end-0 {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* Step number badges using start-100 → flip to right side */
+html[dir="rtl"] .step-num.start-100 {
+    left: auto !important;
+    right: 0 !important;
+    transform: translate(50%, -50%) !important;
+}
+
+/* Hero floating badge: keep it inside the image, swap to left corner */
+html[dir="rtl"] .hero-section .position-absolute.top-0.end-0 {
+    right: auto !important;
+    left: 1rem !important;
+}
+
+/* Me-4 on the hero badge → swap to ms-4 */
+html[dir="rtl"] .hero-section .position-absolute.top-0.end-0.me-4 {
+    margin-right: 0 !important;
+    margin-left: 1.5rem !important;
+}
+
+/* --- B4. Comparison table text alignment in RTL --- */
+html[dir="rtl"] .comparison-container th.text-start,
+html[dir="rtl"] .comparison-container td.text-start {
+    text-align: right !important;
+}
+
+/* First column border: right→left swap already exists but ensure it's correct */
+html[dir="rtl"] .comparison-container .table-responsive {
+    direction: rtl;
+}
+
+/* --- B5. Border mirroring in RTL --- */
+html[dir="rtl"] .border-end {
+    border-right: none !important;
+    border-left: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+html[dir="rtl"] .border-start {
+    border-left: none !important;
+    border-right: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+/* --- B6. Roadmap timeline fixes in RTL --- */
+@media (min-width: 768px) {
+    html[dir="rtl"] .timeline-roadmap .order-md-1 {
+        order: 3 !important;
+    }
+
+    html[dir="rtl"] .timeline-roadmap .order-md-3 {
+        order: 1 !important;
+    }
+
+    html[dir="rtl"] .timeline-roadmap .text-md-end {
+        text-align: left !important;
+    }
+
+    html[dir="rtl"] .timeline-roadmap .pe-md-5 {
+        padding-right: 0 !important;
+        padding-left: 3rem !important;
+    }
+
+    html[dir="rtl"] .timeline-roadmap .ps-md-5 {
+        padding-left: 0 !important;
+        padding-right: 3rem !important;
+    }
+}
+
+/* --- B7. Footer layout fixes in RTL --- */
+html[dir="rtl"] footer .d-flex.flex-column.flex-md-row {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 767px) {
+    html[dir="rtl"] footer .d-flex.flex-column.flex-md-row {
+        flex-direction: column;
+    }
+}
+
+/* Footer social links — keep LTR visual order */
+html[dir="rtl"] footer .social-links {
+    direction: ltr;
+}
+
+/* Footer pe-xl-5 → ps-xl-5 in RTL */
+html[dir="rtl"] footer .col-xl-4.pe-xl-5 {
+    padding-right: 0 !important;
+    padding-left: 3rem !important;
+}
+
+/* --- B8. Contact page form & info panel RTL fixes --- */
+html[dir="rtl"] .form-control,
+html[dir="rtl"] .form-select,
+html[dir="rtl"] textarea.form-control {
+    text-align: right;
+}
+
+html[dir="rtl"] .form-label {
+    text-align: right;
+    display: block;
+}
+
+/* Contact info icon circles: swap me-4 → ms-4 */
+html[dir="rtl"] .col-lg-5 .icon-circle.me-4 {
+    margin-right: 0 !important;
+    margin-left: 1.5rem !important;
+}
+
+/* --- B9. Hero section layout fixes in RTL --- */
+
+/* Ensure hero section never overflows */
+html[dir="rtl"] .hero-section {
+    overflow: hidden !important;
+}
+
+html[dir="rtl"] .hero-section .container {
+    overflow: visible;
+}
+
+/* Swap pe-lg-5 to padding-left in RTL */
+html[dir="rtl"] .hero-section .pe-lg-5 {
+    padding-right: 0 !important;
+    padding-left: 3rem !important;
+}
+
+/* Hero text: prevent overflow on large headings */
+html[dir="rtl"] .hero-section h1,
+html[dir="rtl"] .hero-section .display-1 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Hero buttons: natural RTL flow */
+html[dir="rtl"] .hero-section .d-flex.flex-wrap.gap-3 {
+    justify-content: flex-start;
+}
+
+/* Play button icon offset: ms-1 → me-1 in RTL */
+html[dir="rtl"] .play-btn .bi-play-fill.ms-1 {
+    margin-left: 0 !important;
+    margin-right: 0.25rem !important;
+}
+
+/* Hero badge (PREMIUM FLIGHT EXPERIENCE) — keep inside viewport */
+html[dir="rtl"] .hero-section .badge {
+    display: inline-block;
+    max-width: 100%;
+}
+
+/* Visualizer speed bar fill direction in RTL */
+html[dir="rtl"] .wind-bar-fill {
+    background: linear-gradient(-90deg, var(--primary), #ef4444) !important;
+}
+
+/* --- B10. Pricing page RTL fixes --- */
+html[dir="rtl"] .pricing-price .me-2 {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+}
+
+/* Popular badge centering — use start-50 correctly in RTL */
+html[dir="rtl"] .popular-card .position-absolute.start-50 {
+    left: 50% !important;
+    right: auto !important;
+}
+
+/* --- B11. About page section offset and padding in RTL --- */
+html[dir="rtl"] .col-lg-5.offset-lg-1 {
+    margin-left: 0;
+    margin-right: 8.333333%;
+}
+
+html[dir="rtl"] .col-lg-6.ps-lg-5 {
+    padding-left: 0 !important;
+    padding-right: 3rem !important;
+}
+
+/* --- B12. Gallery page RTL fixes --- */
+html[dir="rtl"] .gallery-overlay {
+    direction: ltr;
+    /* Keep overlay centered */
+}
+
+/* --- B13. Navbar brand icon spacing in RTL --- */
+html[dir="rtl"] .navbar-brand .me-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+/* --- B14. Login/Signup pages RTL text --- */
+html[dir="rtl"] .form-check {
+    padding-left: 0;
+    padding-right: 1.5em;
+}
+
+html[dir="rtl"] .form-check-input {
+    float: right;
+    margin-left: 0;
+    margin-right: -1.5em;
+}
+
+/* --- B15. Mobile RTL adjustments --- */
+@media (max-width: 991px) {
+    html[dir="rtl"] .hero-section .col-lg-7,
+    html[dir="rtl"] .hero-section .col-lg-6 {
+        text-align: center;
+    }
+
+    /* Center hero buttons on mobile RTL */
+    html[dir="rtl"] .hero-section .d-flex.flex-wrap.gap-3 {
+        justify-content: center !important;
+    }
+
+    /* Center RTL mobile content just like LTR mobile */
+    html[dir="rtl"] footer .col-lg-4,
+    html[dir="rtl"] footer .col-lg-2,
+    html[dir="rtl"] footer .col-lg-3,
+    html[dir="rtl"] footer .col-md-6 {
+        text-align: center;
+    }
+
+    html[dir="rtl"] footer .list-unstyled li.d-flex {
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
+
+    html[dir="rtl"] .col-lg-5.reveal-right .d-flex.align-items-start {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    html[dir="rtl"] .col-lg-5 .icon-circle.me-4 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 1rem !important;
+    }
+
+    /* Center list items on mobile RTL */
+    html[dir="rtl"] #about .list-unstyled li.d-flex,
+    html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    html[dir="rtl"] #about .list-unstyled li.d-flex .icon-box,
+    html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start i {
+        margin-right: auto !important;
+        margin-left: auto !important;
+        margin-bottom: 1rem !important;
+    }
+
+    html[dir="rtl"] #safety .list-unstyled li.d-flex,
+    html[dir="rtl"] .pricing-card .list-unstyled li.d-flex {
+        justify-content: center !important;
+    }
+
+    /* Roadmap timeline on mobile RTL */
+    html[dir="rtl"] .timeline-roadmap .row .col-md-5 {
+        text-align: center !important;
+    }
+}
+
+/* ==========================================================================
+   C. ADDITIONAL COLOR & CONTRAST FIXES
+   ========================================================================== */
+
+/* Ensure section subtitle labels (text-secondary) are visible in both themes */
+.text-secondary.fw-bold.text-uppercase {
+    opacity: 1 !important;
+}
+
+/* Improve badge-accent visibility with primary color */
+.badge-accent {
+    background-color: rgba(var(--primary-rgb), 0.15) !important;
+    color: var(--primary) !important;
+    border: 1px solid rgba(var(--primary-rgb), 0.3) !important;
+}
+
+/* Light theme: ensure text-accent uses primary in all contexts */
+[data-theme="light"] .text-accent {
+    color: var(--primary) !important;
+}
+
+/* Fix step-num visibility on primary background */
+.step-num {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+    border: 2px solid var(--primary) !important;
+}
+
+/* Improve disabled pricing feature visibility */
+.pricing-card li.text-muted {
+    opacity: 0.5;
+}
+
+/* Light theme: ensure bg-dark card borders are visible */
+[data-theme="light"] .service-card.bg-dark,
+[data-theme="light"] .card.bg-dark.border.border-secondary {
+    border-color: var(--border-color) !important;
+}
+
+/* Ensure "MOST POPULAR" badge is bright on both themes */
+.popular-card .badge.bg-primary {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+}
+
+/* Fix video card text-accent to use primary color for visibility */
+.video-card .text-accent {
+    color: var(--primary) !important;
+}
+
+/* Light theme: roadmap step circle border visibility */
+[data-theme="light"] .roadmap-step-circle {
+    border-color: var(--primary) !important;
+    background: var(--bg-main) !important;
+}
+
+/* Ensure accordion chevron is visible in light theme */
+[data-theme="light"] .custom-accordion .accordion-button::after {
+    filter: none;
+}
+
+/* Footer Quick Links Hover Effects with transition and slide */
+.footer-links a {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.3s ease;
+}
+
+.footer-links a:hover {
+    transform: translateX(6px);
+    color: var(--primary) !important;
+}
+
+/* In RTL mode, slide left instead of right */
+html[dir="rtl"] .footer-links a:hover {
+    transform: translateX(-6px);
+}
+
+/* --- D. RESPONSIVE SAFETY STAT CARD ADJUSTMENTS --- */
+.stat-card h3.display-5 {
+    font-size: clamp(1.8rem, 4.5vw, 3rem) !important;
+}
+
+@media (max-width: 575px) {
+    .stat-card {
+        padding: 1rem 0.5rem !important;
+    }
 }

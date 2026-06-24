@@ -37,6 +37,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 </head>
@@ -59,7 +60,7 @@
                     RTL
                 </button>
                 <a href="login.html" class="btn btn-primary d-none d-xl-inline-flex px-4 fw-bold">Login</a>
-                <button class="navbar-toggler ms-2 shadow-none" type="button" data-bs-toggle="offcanvas"
+                <button class="navbar-toggler d-xl-none ms-2 shadow-none" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle Navigation">
                     <i class="bi bi-list fs-3"></i>
                 </button>
@@ -98,8 +99,7 @@
     <section id="hero" class="hero-section d-flex align-items-center">
         <div class="hero-video-wrapper">
             <div class="video-overlay"></div>
-            <img src="assets/images/hero_wind_tunnel.png"
-                alt="Indoor Skydiving" class="hero-bg-img">
+            <img src="assets/images/hero_wind_tunnel.png" alt="Indoor Skydiving" class="hero-bg-img">
         </div>
         <div class="container position-relative z-1">
             <div class="row align-items-center g-5">
@@ -119,12 +119,12 @@
                 </div>
                 <div class="col-lg-5 reveal-right">
                     <div class="position-relative">
-                        <img src="assets/images/hero_flyer_right.png"
-                            alt="Indoor Skydiving Flyer"
+                        <img src="assets/images/hero_flyer_right.png" alt="Indoor Skydiving Flyer"
                             class="img-fluid rounded-4 shadow-xl border border-secondary"
                             style="max-height: 500px; width: 100%; object-fit: cover;">
                         <!-- Floating Badge -->
-                        <div class="position-absolute top-0 end-0 mt-4 me-4 glass-card rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
+                        <div
+                            class="position-absolute top-0 end-0 mt-4 me-4 glass-card rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
                             <div class="bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">
                                 <i class="bi bi-wind"></i>
@@ -151,8 +151,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 reveal-left">
                     <div class="image-stack position-relative">
-                        <img src="assets/images/first_timer_flyer.png"
-                            alt="Skydiving in tunnel"
+                        <img src="assets/images/first_timer_flyer.png" alt="Skydiving in tunnel"
                             class="img-fluid rounded-4 shadow-lg img-main w-100 object-fit-cover"
                             style="height: 500px;">
                         <div
@@ -269,7 +268,8 @@
     <!-- 4. Safety First Section -->
     <section id="safety" class="py-10">
         <div class="container">
-            <div class="glass-card p-5 rounded-5 overflow-hidden position-relative border-accent-glow reveal-up p-xl-5">
+            <div
+                class="glass-card p-3 p-md-5 rounded-5 overflow-hidden position-relative border-accent-glow reveal-up p-xl-5">
                 <!-- Section Heading centered above columns -->
                 <div class="text-center mb-5 pb-3 z-1 position-relative">
                     <h6 class="text-secondary fw-bold text-uppercase mb-2 tracking-wide">Peace of mind</h6>
@@ -299,21 +299,21 @@
                         <div class="row g-4">
                             <div class="col-6">
                                 <div
-                                    class="stat-card text-center p-4 rounded-4 bg-dark border border-secondary hover-lift">
+                                    class="stat-card text-center p-3 p-md-4 rounded-4 bg-dark border border-secondary hover-lift">
                                     <h3 class="display-5 fw-bold text-white mb-1">1M+</h3>
                                     <span class="text-secondary fw-medium">Safe Flights</span>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div
-                                    class="stat-card text-center p-4 rounded-4 bg-dark border border-secondary hover-lift">
-                                    <h3 class="display-5 fw-bold text-white mb-1">500+</h3>
-                                    <span class="text-secondary fw-medium">Pro Flyers</span>
+                                    class="stat-card text-center p-3 p-md-4 rounded-4 bg-dark border border-secondary hover-lift">
+                                    <h3 class="display-5 fw-bold text-white mb-1">5H+</h3>
+                                    <span class="text-secondary fw-medium">The Pro Flyers</span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div
-                                    class="stat-card text-center p-4 rounded-4 bg-dark border border-secondary hover-lift">
+                                    class="stat-card text-center p-3 p-md-4 rounded-4 bg-dark border border-secondary hover-lift">
                                     <h3 class="display-5 fw-bold text-white mb-1">0</h3>
                                     <span class="text-secondary fw-medium">Previous Experience Needed</span>
                                 </div>
@@ -336,18 +336,17 @@
             </div>
 
             <div class="row align-items-center g-5">
-                <div class="col-lg-5 reveal-left">
-                    <p class="text-light-muted mb-4 fs-5 pe-lg-4">Understanding the physics makes you a better flyer.
+                <div class="col-xl-5 reveal-left">
+                    <p class="fw-bold mb-4 fs-5 text-center">Understanding the physics makes you a better flyer.
                         Learn how aerodynamics keep you suspended in mid-air.</p>
-                    <div class="d-none d-lg-block mt-5 position-relative">
-                        <img src="assets/images/pro_flyer.png"
-                            alt="Aerodynamics" class="img-fluid rounded-4 shadow-xl w-100 object-fit-cover"
-                            style="height: 350px;">
+                    <div class="mt-4 mt-xl-5 position-relative text-center mx-auto" style="max-width: 600px;">
+                        <img src="assets/images/pro_flyer.png" alt="Aerodynamics"
+                            class="img-fluid rounded-4 shadow-xl w-100 object-fit-cover" style="height: 350px;">
                         <div class="glow-orb position-absolute top-50 start-50 translate-middle"
                             style="width: 200px; height: 200px; z-index: -1;"></div>
                     </div>
                 </div>
-                <div class="col-lg-7 reveal-right">
+                <div class="col-xl-7 reveal-right">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="physics-card p-4 p-xl-5 rounded-4 glass-card border-0 hover-lift h-100">
@@ -407,12 +406,11 @@
                 <h2 class="display-4 fw-bold">Don't Just Take Our Word</h2>
             </div>
 
-            <div class="row g-4">
-                <div class="col-lg-4 reveal-up" style="transition-delay: 100ms;">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4 reveal-up" style="transition-delay: 100ms;">
                     <div class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer">
-                        <img src="assets/images/first_timer_flyer.png"
-                            alt="Customer Video" class="img-fluid w-100 object-fit-cover"
-                            style="height: 450px; filter: brightness(0.6);">
+                        <img src="assets/images/first_timer_flyer.png" alt="Customer Video"
+                            class="img-fluid w-100 object-fit-cover" style="height: 450px; filter: brightness(0.6);">
                         <div class="video-overlay position-absolute top-50 start-50 translate-middle">
                             <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
                                 style="width: 70px; height: 70px; transition: all 0.3s ease;">
@@ -426,11 +424,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 reveal-up" style="transition-delay: 200ms;">
+                <div class="col-md-6 col-lg-4 reveal-up" style="transition-delay: 200ms;">
                     <div class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer">
-                        <img src="assets/images/team_building.png"
-                            alt="Corporate Event" class="img-fluid w-100 object-fit-cover"
-                            style="height: 450px; filter: brightness(0.6);">
+                        <img src="assets/images/team_building.png" alt="Corporate Event"
+                            class="img-fluid w-100 object-fit-cover" style="height: 450px; filter: brightness(0.6);">
                         <div class="video-overlay position-absolute top-50 start-50 translate-middle">
                             <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
                                 style="width: 70px; height: 70px; transition: all 0.3s ease;">
@@ -444,10 +441,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 reveal-up" style="transition-delay: 300ms;">
+                <div class="col-md-6 col-lg-4 reveal-up" style="transition-delay: 300ms;">
                     <div class="video-card rounded-4 overflow-hidden position-relative hover-lift cursor-pointer">
-                        <img src="assets/images/pro_flyer.png"
-                            alt="Pro Flyer" class="img-fluid w-100 object-fit-cover"
+                        <img src="assets/images/pro_flyer.png" alt="Pro Flyer" class="img-fluid w-100 object-fit-cover"
                             style="height: 450px; filter: brightness(0.6);">
                         <div class="video-overlay position-absolute top-50 start-50 translate-middle">
                             <div class="play-btn bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-glow"
@@ -598,8 +594,9 @@
     <footer class="bg-darker pt-10 pb-4 position-relative">
         <div class="container">
             <div class="row g-5 mb-5 pb-5 border-bottom border-dark">
-                <div class="col-lg-4 pe-xl-5">
-                    <a class="navbar-brand d-inline-flex align-items-center text-decoration-none mb-4" href="index.html">
+                <div class="col-md-6 col-xl-4 pe-xl-5">
+                    <a class="navbar-brand d-inline-flex align-items-center text-decoration-none mb-4"
+                        href="index.html">
                         <i class="bi bi-wind me-2 fs-3 text-primary"></i>
                         <span class="fs-4 fw-bold text-gradient">AeroFly</span>
                     </a>
@@ -620,7 +617,7 @@
                                 class="bi bi-youtube fs-5"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mt-lg-5">
+                <div class="col-md-6 col-xl-2 mt-5 mt-md-0 mt-xl-5">
                     <h5 class="text-white fw-bold mb-4 fs-4">Quick Links</h5>
                     <ul class="list-unstyled footer-links">
                         <li class="mb-3"><a href="index.html#about"
@@ -640,22 +637,26 @@
                                 Cards</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mt-lg-5">
+                <div class="col-md-6 col-xl-3 mt-5">
                     <h5 class="text-white fw-bold mb-4 fs-4">Contact Info</h5>
                     <ul class="list-unstyled text-light-muted">
                         <li class="mb-4 d-flex align-items-start"><i class="bi bi-geo-alt fs-5 text-primary me-3"></i>
-                            <span>123 Skydiving Lane,<br>Adventure City, AC 90210</span></li>
+                            <span>123 Skydiving Lane,<br>Adventure City, AC 90210</span>
+                        </li>
                         <li class="mb-4 d-flex align-items-center"><i
                                 class="bi bi-telephone fs-5 text-primary me-3"></i> <span>(555) 123-4567</span></li>
                         <li class="mb-4 d-flex align-items-center"><i class="bi bi-envelope fs-5 text-primary me-3"></i>
-                            <span>fly@aerofly.com</span></li>
+                            <span>fly@aerofly.com</span>
+                        </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-4 mt-lg-5">
+                <div class="col-md-6 col-xl-3 mt-5">
                     <h5 class="fw-bold mb-4 fs-5" style="color: var(--text-main);">Newsletter</h5>
                     <p class="text-light-muted mb-4">Subscribe for exclusive offers and flight tips.</p>
                     <form class="d-flex flex-column gap-3" action="#" method="POST">
-                        <input type="email" class="bg-transparent border-0 border-bottom border-secondary py-2 px-1 text-main-theme" placeholder="Email address" style="outline: none; color: var(--text-main);" required>
+                        <input type="email"
+                            class="bg-transparent border-0 border-bottom border-secondary py-2 px-1 text-main-theme"
+                            placeholder="Email address" style="outline: none; color: var(--text-main);" required>
                         <button type="submit" class="btn btn-primary fw-bold py-2.5 w-100">Subscribe</button>
                     </form>
                 </div>
