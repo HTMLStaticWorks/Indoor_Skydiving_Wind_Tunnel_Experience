@@ -4,9 +4,9 @@
     <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = sessionStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const savedDir = localStorage.getItem('dir');
+            const savedDir = sessionStorage.getItem('dir');
             if (savedDir === 'rtl') {
                 document.documentElement.setAttribute('dir', 'rtl');
             } else {
@@ -50,7 +50,7 @@
                 <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
                     <i class="bi bi-sun-fill"></i>
                 </button>
-                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                <button id="rtl-toggle" class="btn btn-icon me-2 fw-bold" aria-label="Toggle RTL">
                     RTL
                 </button>
                 <a href="login.html" class="btn btn-primary d-none d-xl-inline-flex px-4 fw-bold">Login</a>

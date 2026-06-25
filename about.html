@@ -4,9 +4,9 @@
     <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = sessionStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const savedDir = localStorage.getItem('dir');
+            const savedDir = sessionStorage.getItem('dir');
             if (savedDir === 'rtl') {
                 document.documentElement.setAttribute('dir', 'rtl');
             } else {
@@ -50,7 +50,7 @@
                 <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
                     <i class="bi bi-sun-fill"></i>
                 </button>
-                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                <button id="rtl-toggle" class="btn btn-icon me-2 fw-bold" aria-label="Toggle RTL">
                     RTL
                 </button>
                 <a href="login.html" class="btn btn-primary d-none d-xl-inline-flex px-4 fw-bold">Login</a>
@@ -169,9 +169,9 @@
                         <div class="p-4 bg-dark rounded-4 border border-secondary">
                             <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 1-2 Hours</h6>
                             <ul class="list-unstyled mb-0 text-light-muted">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Neutral belly position</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Forward & backward motion</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>360-degree turns</li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Neutral belly position</span></li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Forward & backward motion</span></li>
+                                <li class="d-flex align-items-start mb-0"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>360-degree turns</span></li>
                             </ul>
                         </div>
                     </div>
@@ -193,9 +193,9 @@
                         <div class="p-4 bg-dark rounded-4 border border-secondary text-start">
                             <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 5-8 Hours</h6>
                             <ul class="list-unstyled mb-0 text-light-muted">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Stable back flying posture</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Belly-to-back transition loops</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Air-docking with partner</li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Stable back flying posture</span></li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Belly-to-back transition loops</span></li>
+                                <li class="d-flex align-items-start mb-0"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Air-docking with partner</span></li>
                             </ul>
                         </div>
                     </div>
@@ -217,9 +217,9 @@
                         <div class="p-4 bg-dark rounded-4 border border-secondary">
                             <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 15-20 Hours</h6>
                             <ul class="list-unstyled mb-0 text-light-muted">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Stable sit-fly positioning</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Upright speed carvings</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Vertical altitude control</li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Stable sit-fly positioning</span></li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Upright speed carvings</span></li>
+                                <li class="d-flex align-items-start mb-0"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Vertical altitude control</span></li>
                             </ul>
                         </div>
                     </div>
@@ -241,9 +241,9 @@
                         <div class="p-4 bg-dark rounded-4 border border-secondary text-start">
                             <h6 class="text-primary fw-bold mb-2"><i class="bi bi-clock me-2"></i>Time Required: 40+ Hours</h6>
                             <ul class="list-unstyled mb-0 text-light-muted">
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Head-down speed carving</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Multi-flyer coordination</li>
-                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Competitor-level acrobatics</li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Head-down speed carving</span></li>
+                                <li class="d-flex align-items-start mb-2"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Multi-flyer coordination</span></li>
+                                <li class="d-flex align-items-start mb-0"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><span>Competitor-level acrobatics</span></li>
                             </ul>
                         </div>
                     </div>

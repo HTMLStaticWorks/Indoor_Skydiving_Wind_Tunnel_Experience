@@ -4,9 +4,9 @@
     <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
     <script>
         (function() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = sessionStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const savedDir = localStorage.getItem('dir');
+            const savedDir = sessionStorage.getItem('dir');
             if (savedDir === 'rtl') {
                 document.documentElement.setAttribute('dir', 'rtl');
             } else {

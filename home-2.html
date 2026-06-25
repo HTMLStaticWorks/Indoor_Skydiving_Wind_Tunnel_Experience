@@ -5,9 +5,9 @@
     <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
     <script>
         (function () {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = sessionStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const savedDir = localStorage.getItem('dir');
+            const savedDir = sessionStorage.getItem('dir');
             if (savedDir === 'rtl') {
                 document.documentElement.setAttribute('dir', 'rtl');
             } else {
@@ -55,7 +55,7 @@
                 <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
                     <i class="bi bi-sun-fill"></i>
                 </button>
-                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                <button id="rtl-toggle" class="btn btn-icon me-2 fw-bold" aria-label="Toggle RTL">
                     RTL
                 </button>
                 <a href="login.html" class="btn btn-primary d-none d-xl-inline-flex px-4 fw-bold">Login</a>
@@ -130,7 +130,7 @@
                             style="height: 600px; object-fit: cover;">
                         <!-- Floating Badge -->
                         <div
-                            class="position-absolute top-0 end-0 mt-4 me-4 bg-dark border border-secondary rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
+                            class="position-absolute top-auto bottom-0 top-lg-0 bottom-lg-auto mt-0 mt-lg-4 mb-4 mb-lg-0 me-4 end-0 bg-dark border border-secondary rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
                             <div class="bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">
                                 <i class="bi bi-person-arms-up"></i>
@@ -236,7 +236,7 @@
 
                 <!-- Output Telemetry & Flight Style -->
                 <div class="col-lg-6">
-                    <div class="p-5 rounded-4 bg-dark border border-secondary h-100">
+                    <div class="p-5 rounded-4 telemetry-panel bg-dark border border-secondary h-100">
                         <h4 class="fw-bold mb-4 text-white"><i class="bi bi-cpu me-2 text-primary"></i>Live Telemetry
                             Feedback</h4>
 

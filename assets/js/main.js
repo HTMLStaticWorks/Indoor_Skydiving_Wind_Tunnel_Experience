@@ -30,11 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
     
-    // Check local storage or fallback to current HTML attribute
-    let savedTheme = localStorage.getItem('theme');
+    // Check session storage or fallback to current HTML attribute
+    let savedTheme = sessionStorage.getItem('theme');
     if (!savedTheme) {
         savedTheme = htmlElement.getAttribute('data-theme') || 'light';
-        localStorage.setItem('theme', savedTheme);
+        sessionStorage.setItem('theme', savedTheme);
     }
     htmlElement.setAttribute('data-theme', savedTheme);
     if (themeIcon) updateThemeIcon(savedTheme);
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
             htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            sessionStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
         });
     }
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. RTL Toggle ---
     const rtlToggleBtn = document.getElementById('rtl-toggle');
     
-    let savedDir = localStorage.getItem('dir');
+    let savedDir = sessionStorage.getItem('dir');
     if (savedDir === 'rtl') {
         htmlElement.setAttribute('dir', 'rtl');
         if (rtlToggleBtn) rtlToggleBtn.textContent = 'LTR';
@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRtl = htmlElement.getAttribute('dir') === 'rtl';
             if (isRtl) {
                 htmlElement.removeAttribute('dir');
-                localStorage.setItem('dir', 'ltr');
+                sessionStorage.setItem('dir', 'ltr');
                 rtlToggleBtn.textContent = 'RTL';
             } else {
                 htmlElement.setAttribute('dir', 'rtl');
-                localStorage.setItem('dir', 'rtl');
+                sessionStorage.setItem('dir', 'rtl');
                 rtlToggleBtn.textContent = 'LTR';
             }
         });

@@ -5,9 +5,9 @@
     <!-- Immediate Theme & Direction Initialization to prevent Flash/Layout Shift -->
     <script>
         (function () {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = sessionStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            const savedDir = localStorage.getItem('dir');
+            const savedDir = sessionStorage.getItem('dir');
             if (savedDir === 'rtl') {
                 document.documentElement.setAttribute('dir', 'rtl');
             } else {
@@ -56,7 +56,7 @@
                 <button id="theme-toggle" class="btn btn-icon me-2" aria-label="Toggle Theme">
                     <i class="bi bi-sun-fill"></i>
                 </button>
-                <button id="rtl-toggle" class="btn btn-icon me-3 fw-bold" aria-label="Toggle RTL">
+                <button id="rtl-toggle" class="btn btn-icon me-2 fw-bold" aria-label="Toggle RTL">
                     RTL
                 </button>
                 <a href="login.html" class="btn btn-primary d-none d-xl-inline-flex px-4 fw-bold">Login</a>
@@ -124,7 +124,7 @@
                             style="max-height: 500px; width: 100%; object-fit: cover;">
                         <!-- Floating Badge -->
                         <div
-                            class="position-absolute top-0 end-0 mt-4 me-4 glass-card rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
+                            class="position-absolute top-auto bottom-0 top-lg-0 bottom-lg-auto mt-0 mt-lg-4 mb-4 mb-lg-0 me-4 end-0 glass-card rounded-4 p-3 shadow-lg d-flex align-items-center gap-3">
                             <div class="bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center"
                                 style="width: 40px; height: 40px;">
                                 <i class="bi bi-wind"></i>
@@ -169,7 +169,8 @@
                     <ul class="list-unstyled mb-5">
                         <li class="d-flex mb-4 align-items-start">
                             <div
-                                class="icon-box me-4 bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center p-3 fs-3">
+                                class="icon-box me-4 bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center fs-3"
+                                style="width: 60px; height: 60px; flex-shrink: 0;">
                                 <i class="bi bi-wind"></i>
                             </div>
                             <div>
@@ -180,7 +181,8 @@
                         </li>
                         <li class="d-flex mb-4 align-items-start">
                             <div
-                                class="icon-box me-4 bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center p-3 fs-3">
+                                class="icon-box me-4 bg-primary-alpha text-primary rounded-circle d-flex align-items-center justify-content-center fs-3"
+                                style="width: 60px; height: 60px; flex-shrink: 0;">
                                 <i class="bi bi-shield-check"></i>
                             </div>
                             <div>
@@ -297,14 +299,14 @@
                     </div>
                     <div class="col-lg-5 offset-lg-1">
                         <div class="row g-4">
-                            <div class="col-6">
+                            <div class="col-12 col-sm-6">
                                 <div
                                     class="stat-card text-center p-3 p-md-4 rounded-4 bg-dark border border-secondary hover-lift">
                                     <h3 class="display-5 fw-bold text-white mb-1">1M+</h3>
                                     <span class="text-secondary fw-medium">Safe Flights</span>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-sm-6">
                                 <div
                                     class="stat-card text-center p-3 p-md-4 rounded-4 bg-dark border border-secondary hover-lift">
                                     <h3 class="display-5 fw-bold text-white mb-1">5H+</h3>
@@ -336,17 +338,17 @@
             </div>
 
             <div class="row align-items-center g-5">
-                <div class="col-xl-5 reveal-left">
+                <div class="col-12 reveal-left">
                     <p class="fw-bold mb-4 fs-5 text-center">Understanding the physics makes you a better flyer.
                         Learn how aerodynamics keep you suspended in mid-air.</p>
-                    <div class="mt-4 mt-xl-5 position-relative text-center mx-auto" style="max-width: 600px;">
+                    <div class="mt-4 mt-xl-5 mb-5 position-relative text-center mx-auto" style="max-width: 600px;">
                         <img src="assets/images/pro_flyer.png" alt="Aerodynamics"
                             class="img-fluid rounded-4 shadow-xl w-100 object-fit-cover" style="height: 350px;">
                         <div class="glow-orb position-absolute top-50 start-50 translate-middle"
                             style="width: 200px; height: 200px; z-index: -1;"></div>
                     </div>
                 </div>
-                <div class="col-xl-7 reveal-right">
+                <div class="col-12 reveal-right">
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="physics-card p-4 p-xl-5 rounded-4 glass-card border-0 hover-lift h-100">

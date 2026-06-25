@@ -79,9 +79,13 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-section,
-.row {
+section {
     max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.row {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
@@ -190,10 +194,26 @@ h1,
     padding-bottom: 5rem;
 }
 
+.pt-10 {
+    padding-top: 5rem !important;
+}
+
+.pb-10 {
+    padding-bottom: 5rem !important;
+}
+
 @media (min-width: 992px) {
     .py-10 {
         padding-top: 8rem;
         padding-bottom: 8rem;
+    }
+    
+    .pt-10 {
+        padding-top: 8rem !important;
+    }
+    
+    .pb-10 {
+        padding-bottom: 8rem !important;
     }
 }
 
@@ -742,7 +762,6 @@ html[dir="rtl"] h3,
 html[dir="rtl"] h4,
 html[dir="rtl"] h5,
 html[dir="rtl"] h6,
-html[dir="rtl"] li,
 html[dir="rtl"] a:not(.btn-icon),
 html[dir="rtl"] span:not(.bi):not(.navbar-toggler-icon):not(.brand-icon) {
     direction: ltr;
@@ -821,8 +840,8 @@ html[dir="rtl"] .reveal-right {
     transform: translateX(-15px);
 }
 
-html[dir="rtl"] .video-overlay {
-    background: linear-gradient(-90deg, rgba(17, 17, 17, 0.95) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(17, 17, 17, 0.4) 100%);
+html[dir="rtl"] .hero-video-wrapper .video-overlay {
+    background: linear-gradient(270deg, rgba(17, 17, 17, 0.95) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(17, 17, 17, 0.4) 100%) !important;
 }
 
 /* Hide hamburger toggler on desktop globally */
@@ -1477,6 +1496,50 @@ button:not(.collapsed) .bi-chevron-down {
     color: var(--text-main) !important;
 }
 
+[data-theme="light"] .pricing-card:not(.popular-card) {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-main) !important;
+}
+
+[data-theme="light"] .pricing-card:not(.popular-card) h4,
+[data-theme="light"] .pricing-card:not(.popular-card) .pricing-price span,
+[data-theme="light"] .pricing-card:not(.popular-card) .pricing-price,
+[data-theme="light"] .pricing-card:not(.popular-card) ul li span {
+    color: var(--text-main) !important;
+}
+
+[data-theme="light"] .pricing-card:not(.popular-card) .text-light-muted {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="light"] .pricing-card:not(.popular-card) .btn-outline-light {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    background-color: transparent !important;
+}
+
+[data-theme="light"] .pricing-card:not(.popular-card) .btn-outline-light:hover {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+    border-color: var(--primary) !important;
+}
+
+/* Light theme video card visibility fixes */
+[data-theme="light"] .video-card.card {
+    background-color: var(--bg-main) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="light"] .video-card.card h4 {
+    color: var(--text-main) !important;
+}
+
+[data-theme="light"] .video-card.card p,
+[data-theme="light"] .video-card.card span:not(.badge) {
+    color: var(--text-muted) !important;
+}
+
 [data-theme="light"] .page-hero h1:not(.text-primary):not(.text-accent):not(.text-gradient):not(.badge):not(.step-num),
 [data-theme="light"] .page-hero h2:not(.text-primary):not(.text-accent):not(.text-gradient):not(.badge):not(.step-num),
 [data-theme="light"] .page-hero h3:not(.text-primary):not(.text-accent):not(.text-gradient):not(.badge):not(.step-num),
@@ -1918,33 +1981,30 @@ html[dir="rtl"] .comparison-container td:first-child {
         margin-top: 3rem !important;
     }
 
-    /* Service cards: center content on mobile */
+    /* Service cards: keep start alignment on mobile */
     .service-card .p-5,
     .service-card .p-4 {
-        text-align: center;
+        text-align: start !important;
     }
 
     .service-card .icon-circle,
-    .service-card .d-inline-flex {
-        margin-left: auto !important;
-        margin-right: auto !important;
+    .glass-card.text-center .icon-circle {
+        margin-inline-start: 0 !important;
+        margin-inline-end: auto !important;
     }
 
-    /* Center all glass-card, bg-dark card content on mobile */
+    /* Center all process-card, physics-card content on mobile but keep others start aligned */
     .process-card,
     .physics-card,
     .feature-icon-card,
     .team-card,
-    .pricing-card .card-body,
-    .gear-item-card {
+    .pricing-card .card-body {
         text-align: center;
     }
 
-    /* Stack and center gear explorer cards on mobile view */
-    .gear-item-card {
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: 1rem !important;
+    /* Left-align glass-cards text on mobile */
+    .glass-card.text-center {
+        text-align: start !important;
     }
 
     /* Center icon circles on mobile */
@@ -2043,14 +2103,20 @@ html[dir="rtl"] .comparison-container td:first-child {
     }
 
     /* Location cards centering */
+    .col-md-6 .glass-card .p-4,
+    .col-lg-4 .glass-card .p-4,
     .col-md-4 .glass-card .p-4 {
         text-align: center;
     }
 
+    .col-md-6 .glass-card .d-inline-flex.flex-column,
+    .col-lg-4 .glass-card .d-inline-flex.flex-column,
     .col-md-4 .glass-card .d-inline-flex.flex-column {
         align-items: center !important;
     }
 
+    .col-md-6 .glass-card .d-inline-flex .d-flex.align-items-start,
+    .col-lg-4 .glass-card .d-inline-flex .d-flex.align-items-start,
     .col-md-4 .glass-card .d-inline-flex .d-flex.align-items-start {
         justify-content: center;
     }
@@ -2126,10 +2192,6 @@ html[dir="rtl"] .comparison-container td:first-child {
     .timeline-roadmap .p-4.bg-dark {
         text-align: center;
     }
-
-    .timeline-roadmap .list-unstyled li {
-        justify-content: center;
-    }
 }
 
 @media (max-width: 767px) {
@@ -2171,6 +2233,7 @@ html[dir="rtl"] {
 }
 
 html[dir="rtl"] body {
+    direction: rtl !important;
     overflow-x: clip !important;
     max-width: 100vw;
     text-align: right;
@@ -2184,12 +2247,12 @@ html[dir="rtl"] section {
 /* Custom overrides for .g-5 globally to match devtools configuration */
 .g-5,
 .gy-5 {
-    --bs-gutter-y: 0rem !important;
+    --bs-gutter-y: 3rem !important;
 }
 
 .g-5,
 .gx-5 {
-    --bs-gutter-x: 0rem !important;
+    --bs-gutter-x: 3rem !important;
 }
 
 /* Container padding handled globally with logical properties */
@@ -2235,29 +2298,37 @@ html[dir="rtl"] img {
 html[dir="rtl"] footer .list-unstyled li.d-flex,
 html[dir="rtl"] .col-lg-5.reveal-right .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-3 .list-unstyled li.d-flex {
-    flex-direction: row-reverse;
+    flex-direction: row !important;
 }
 
 /* About page: feature list icon + text reversal */
 html[dir="rtl"] #about .list-unstyled li.d-flex,
+html[dir="rtl"] .col-lg-6 .d-flex.align-items-start,
+html[dir="rtl"] .col-lg-5 .d-flex.align-items-start,
+html[dir="rtl"] .col-md-6 .d-flex.align-items-start,
+html[dir="rtl"] .col-sm-6 .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-6.reveal-right .d-flex.align-items-start {
-    flex-direction: row-reverse;
+    flex-direction: row !important;
+    text-align: right !important;
 }
 
 /* Safety section checkmark list reversal */
 html[dir="rtl"] #safety .list-unstyled li.d-flex {
-    flex-direction: row-reverse;
+    flex-direction: row !important;
 }
 
 /* Pricing feature list reversal */
 html[dir="rtl"] .pricing-card .list-unstyled li.d-flex {
-    flex-direction: row-reverse;
+    flex-direction: row !important;
 }
 
 /* Contact location cards */
-html[dir="rtl"] .col-md-4 .glass-card .d-flex.align-items-start {
-    flex-direction: row-reverse;
+html[dir="rtl"] .col-md-6 .glass-card .d-flex.align-items-start,
+html[dir="rtl"] .col-lg-4 .glass-card .d-flex.align-items-start,
+html[dir="rtl"] .col-md-4 .glass-card .d-flex.align-items-start,
+html[dir="rtl"] .glass-card .d-inline-flex.flex-column .d-flex.align-items-start {
+    flex-direction: row !important;
 }
 
 /* FAQ accordion button — text right, chevron left in RTL */
@@ -2349,14 +2420,6 @@ html[dir="rtl"] .border-start {
 
 /* --- B6. Roadmap timeline fixes in RTL --- */
 @media (min-width: 768px) {
-    html[dir="rtl"] .timeline-roadmap .order-md-1 {
-        order: 3 !important;
-    }
-
-    html[dir="rtl"] .timeline-roadmap .order-md-3 {
-        order: 1 !important;
-    }
-
     html[dir="rtl"] .timeline-roadmap .text-md-end {
         text-align: left !important;
     }
@@ -2478,8 +2541,29 @@ html[dir="rtl"] .col-lg-5.offset-lg-1 {
 }
 
 html[dir="rtl"] .col-lg-6.ps-lg-5 {
-    padding-left: 0 !important;
+    padding-left: 1.5rem !important;
     padding-right: 3rem !important;
+}
+
+/* Prevent column clipping in RTL mode due to utility overrides resetting gutters */
+html[dir="rtl"] [class*="col-"].ps-lg-5,
+html[dir="rtl"] [class*="col-"].ps-5 {
+    padding-left: 1.5rem !important;
+}
+
+html[dir="rtl"] [class*="col-"].pe-lg-5,
+html[dir="rtl"] [class*="col-"].pe-5 {
+    padding-right: 1.5rem !important;
+}
+
+html[dir="rtl"] [class*="col-"].ps-lg-4,
+html[dir="rtl"] [class*="col-"].ps-4 {
+    padding-left: 1.5rem !important;
+}
+
+html[dir="rtl"] [class*="col-"].pe-lg-4,
+html[dir="rtl"] [class*="col-"].pe-4 {
+    padding-right: 1.5rem !important;
 }
 
 /* --- B12. Gallery page RTL fixes --- */
@@ -2490,8 +2574,8 @@ html[dir="rtl"] .gallery-overlay {
 
 /* --- B13. Navbar brand icon spacing in RTL --- */
 html[dir="rtl"] .navbar-brand .me-2 {
-    margin-right: 0.5rem !important;
-    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
 }
 
 /* --- B14. Login/Signup pages RTL text --- */
@@ -2655,4 +2739,35 @@ html[dir="rtl"] .footer-links a:hover {
     .stat-card {
         padding: 1rem 0.5rem !important;
     }
+}
+
+/* --- E. COMPREHENSIVE RTL POSITION & DROPDOWN FIXES --- */
+html[dir="rtl"] .end-0 {
+    left: 0 !important;
+    right: auto !important;
+}
+
+html[dir="rtl"] .start-0 {
+    right: 0 !important;
+    left: auto !important;
+}
+
+html[dir="rtl"] .form-select {
+    background-position: left 0.75rem center !important;
+    padding-left: 2.25rem !important;
+    padding-right: 1.5rem !important;
+}
+
+/* --- F. MOBILE PACKAGES PRICE CENTERING --- */
+@media (max-width: 991px) {
+    .pricing-card .pricing-price {
+        justify-content: center !important;
+    }
+}
+
+/* --- G. SIMULATOR CONTROL RTL ICON SPACING --- */
+html[dir="rtl"] .simulator-panel h4 .bi,
+html[dir="rtl"] .telemetry-panel h4 .bi {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
 }
