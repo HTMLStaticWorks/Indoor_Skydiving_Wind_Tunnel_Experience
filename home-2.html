@@ -453,7 +453,8 @@
                     item below to inspect details and performance specifications.</p>
             </div>
 
-            <div class="row g-4 align-items-stretch">
+            <!-- Desktop Layout (Hidden on Mobile/Tablet) -->
+            <div class="row g-4 align-items-stretch d-none d-lg-flex">
                 <!-- Interactive Selector Grid -->
                 <div class="col-lg-5 d-flex flex-column gap-3">
                     <div class="p-4 rounded-4 gear-item-card active d-flex align-items-center gap-4 hover-lift"
@@ -527,6 +528,145 @@
                                     <div class="small text-muted mb-1">Material</div>
                                     <div class="fw-bold text-white" id="gearStatMaterial">Cordura / Spandex</div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile/Tablet Layout (Hidden on Desktop: Stacked One-by-One) -->
+            <div class="d-block d-lg-none mt-4">
+                <!-- 1. Flight Suit -->
+                <div class="p-4 p-md-5 rounded-4 glass-card border border-secondary mb-4 hover-lift">
+                    <div class="d-flex flex-column align-items-start gap-2 mb-4">
+                        <h4 class="fw-bold text-white mb-0">Professional Flight Suit</h4>
+                        <span class="badge badge-accent align-self-start">Included</span>
+                    </div>
+                    <div class="text-center py-3">
+                        <i class="bi bi-person-badge text-primary mb-3 d-block" style="font-size: 4rem;"></i>
+                    </div>
+                    <p class="text-light-muted fs-5 mb-4">
+                        Tailored from low-drag high-durability fabrics with heavy-duty handles on shoulders and hips to allow instructors to assist stable positioning easily.
+                    </p>
+                    <div class="border-top border-secondary pt-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Drag Coeff.</div>
+                                <div class="fw-bold text-white">0.22 Cd</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Weight</div>
+                                <div class="fw-bold text-white">1.2 kg</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Special Feature</div>
+                                <div class="fw-bold text-white">Grab Handles</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Material</div>
+                                <div class="fw-bold text-white">Cordura / Spandex</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Aero Helmet -->
+                <div class="p-4 p-md-5 rounded-4 glass-card border border-secondary mb-4 hover-lift">
+                    <div class="d-flex flex-column align-items-start gap-2 mb-4">
+                        <h4 class="fw-bold text-white mb-0">Advanced Aero Helmet</h4>
+                        <span class="badge badge-accent align-self-start">Included</span>
+                    </div>
+                    <div class="text-center py-3">
+                        <i class="bi bi-headset text-primary mb-3 d-block" style="font-size: 4rem;"></i>
+                    </div>
+                    <p class="text-light-muted fs-5 mb-4">
+                        Impact-resistant full-face helmet with a wide-angle clear visor. Engineered with noise dampening and integrated communication systems for instructions.
+                    </p>
+                    <div class="border-top border-secondary pt-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Drag Coeff.</div>
+                                <div class="fw-bold text-white">0.08 Cd</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Weight</div>
+                                <div class="fw-bold text-white">0.8 kg</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Special Feature</div>
+                                <div class="fw-bold text-white">Bluetooth Audio</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Material</div>
+                                <div class="fw-bold text-white">Carbon Fiber</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. High-Vis Goggles -->
+                <div class="p-4 p-md-5 rounded-4 glass-card border border-secondary mb-4 hover-lift">
+                    <div class="d-flex flex-column align-items-start gap-2 mb-4">
+                        <h4 class="fw-bold text-white mb-0">High-Visibility Goggles</h4>
+                        <span class="badge badge-accent align-self-start">Included</span>
+                    </div>
+                    <div class="text-center py-3">
+                        <i class="bi bi-eye text-primary mb-3 d-block" style="font-size: 4rem;"></i>
+                    </div>
+                    <p class="text-light-muted fs-5 mb-4">
+                        Premium anti-fog, scratch-resistant impact goggles that offer 180-degree peripheral vision. Features soft silicone seal to prevent drafts.
+                    </p>
+                    <div class="border-top border-secondary pt-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Drag Coeff.</div>
+                                <div class="fw-bold text-white">0.03 Cd</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Weight</div>
+                                <div class="fw-bold text-white">0.15 kg</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Special Feature</div>
+                                <div class="fw-bold text-white">Anti-Fog Coating</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Material</div>
+                                <div class="fw-bold text-white">Polycarbonate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Flight Gloves -->
+                <div class="p-4 p-md-5 rounded-4 glass-card border border-secondary mb-4 hover-lift">
+                    <div class="d-flex flex-column align-items-start gap-2 mb-4">
+                        <h4 class="fw-bold text-white mb-0">High-Grip Flight Gloves</h4>
+                        <span class="badge badge-accent align-self-start">Included</span>
+                    </div>
+                    <div class="text-center py-3">
+                        <i class="bi bi-hand-index-thumb text-primary mb-3 d-block" style="font-size: 4rem;"></i>
+                    </div>
+                    <p class="text-light-muted fs-5 mb-4">
+                        Form-fitting gloves with textured palms for optimal grip and hand protection, designed to shield your hands from high-speed airflow.
+                    </p>
+                    <div class="border-top border-secondary pt-4">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Drag Coeff.</div>
+                                <div class="fw-bold text-white">0.02 Cd</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Weight</div>
+                                <div class="fw-bold text-white">0.1 kg</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Special Feature</div>
+                                <div class="fw-bold text-white">Touchscreen Tips</div>
+                            </div>
+                            <div class="col-12">
+                                <div class="small text-muted mb-1">Material</div>
+                                <div class="fw-bold text-white">Synthetic Leather</div>
                             </div>
                         </div>
                     </div>

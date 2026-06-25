@@ -348,6 +348,12 @@ body.offcanvas-open {
         gap: 0.4rem !important;
     }
 
+    .nav-controls #theme-toggle,
+    .nav-controls #rtl-toggle,
+    .nav-controls .navbar-toggler {
+        margin: 0 !important;
+    }
+
     .btn-icon {
         padding: 0.45rem 0.65rem !important;
     }
@@ -762,10 +768,15 @@ html[dir="rtl"] h3,
 html[dir="rtl"] h4,
 html[dir="rtl"] h5,
 html[dir="rtl"] h6,
-html[dir="rtl"] a:not(.btn-icon),
+html[dir="rtl"] a:not(.btn-icon):not(.btn),
 html[dir="rtl"] span:not(.bi):not(.navbar-toggler-icon):not(.brand-icon) {
     direction: ltr;
     text-align: inherit;
+}
+
+html[dir="rtl"] .btn {
+    direction: ltr;
+    text-align: center;
 }
 
 html[dir="rtl"] .text-start {
@@ -2007,6 +2018,11 @@ html[dir="rtl"] .comparison-container td:first-child {
         text-align: start !important;
     }
 
+    /* Force feature icon cards to remain centered on mobile/tablet */
+    .feature-icon-card {
+        text-align: center !important;
+    }
+
     /* Center icon circles on mobile */
     .icon-circle {
         margin-left: auto !important;
@@ -2298,7 +2314,7 @@ html[dir="rtl"] img {
 html[dir="rtl"] footer .list-unstyled li.d-flex,
 html[dir="rtl"] .col-lg-5.reveal-right .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-3 .list-unstyled li.d-flex {
-    flex-direction: row !important;
+    flex-direction: row-reverse !important;
 }
 
 /* About page: feature list icon + text reversal */
@@ -2309,26 +2325,29 @@ html[dir="rtl"] .col-md-6 .d-flex.align-items-start,
 html[dir="rtl"] .col-sm-6 .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-6.reveal-right .d-flex.align-items-start {
-    flex-direction: row !important;
+    flex-direction: row-reverse !important;
     text-align: right !important;
 }
 
 /* Safety section checkmark list reversal */
 html[dir="rtl"] #safety .list-unstyled li.d-flex {
-    flex-direction: row !important;
+    flex-direction: row-reverse !important;
 }
 
 /* Pricing feature list reversal */
 html[dir="rtl"] .pricing-card .list-unstyled li.d-flex {
-    flex-direction: row !important;
+    flex-direction: row-reverse !important;
 }
 
 /* Contact location cards */
-html[dir="rtl"] .col-md-6 .glass-card .d-flex.align-items-start,
-html[dir="rtl"] .col-lg-4 .glass-card .d-flex.align-items-start,
-html[dir="rtl"] .col-md-4 .glass-card .d-flex.align-items-start,
-html[dir="rtl"] .glass-card .d-inline-flex.flex-column .d-flex.align-items-start {
-    flex-direction: row !important;
+html[dir="rtl"] .glass-card p.d-flex {
+    flex-direction: row-reverse !important;
+    width: 100% !important;
+}
+
+html[dir="rtl"] .glass-card p.d-flex i {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
 }
 
 /* FAQ accordion button — text right, chevron left in RTL */
@@ -2636,7 +2655,7 @@ html[dir="rtl"] .form-check-input {
     }
 
     html[dir="rtl"] #about .list-unstyled li.d-flex .icon-box,
-    html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start i {
+    html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .d-flex.align-items-start .icon-box {
         margin-right: auto !important;
         margin-left: auto !important;
         margin-bottom: 1rem !important;
@@ -2770,4 +2789,13 @@ html[dir="rtl"] .simulator-panel h4 .bi,
 html[dir="rtl"] .telemetry-panel h4 .bi {
     margin-right: 0.5rem !important;
     margin-left: 0 !important;
+}
+
+/* --- H. FEATURE CARD CENTERING FIXES FOR ALL VIEWS --- */
+.feature-icon-card {
+    text-align: center !important;
+}
+.feature-icon-card h5,
+.feature-icon-card i {
+    text-align: center !important;
 }
