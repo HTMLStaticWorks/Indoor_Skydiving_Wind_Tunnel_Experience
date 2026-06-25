@@ -103,19 +103,56 @@
             left: 1.5rem;
         }
 
-        /* Handle input-group border radius in RTL */
-        html[dir="rtl"] .input-group>.form-control {
+        /* RTL: Form labels right-aligned */
+        html[dir="rtl"] .form-label {
+            display: block;
+            text-align: right;
+        }
+
+        /* LTR: input-group default border radius */
+        .input-group > .form-control {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: 0.75rem !important;
+            border-bottom-left-radius: 0.75rem !important;
+        }
+
+        .input-group > .btn {
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
             border-top-right-radius: 0.75rem !important;
             border-bottom-right-radius: 0.75rem !important;
         }
 
-        html[dir="rtl"] .input-group>.btn {
-            border-top-right-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
+        /* RTL: input-group — flip order so eye button is on the LEFT */
+        html[dir="rtl"] .input-group {
+            flex-direction: row-reverse;
+        }
+
+        /* RTL: border-radius swap for input inside input-group */
+        html[dir="rtl"] .input-group > .form-control {
             border-top-left-radius: 0.75rem !important;
             border-bottom-left-radius: 0.75rem !important;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+
+        /* RTL: border-radius swap for eye-toggle button inside input-group */
+        html[dir="rtl"] .input-group > .btn {
+            border-top-right-radius: 0.75rem !important;
+            border-bottom-right-radius: 0.75rem !important;
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+
+        /* RTL: form-check — align checkbox to the right */
+        html[dir="rtl"] .form-check.form-check-centered {
+            direction: rtl;
+        }
+
+        /* RTL: Remember me / Forgot Password row — flip sides */
+        html[dir="rtl"] .remember-row {
+            flex-direction: row-reverse;
         }
     </style>
 </head>
@@ -168,26 +205,22 @@
                     <label for="password" class="form-label text-main-theme fw-medium small mb-1">Password</label>
                     <div class="input-group">
                         <input type="password" id="password" name="password" class="form-control"
-                            placeholder="Enter password" required
-                            style="border-top-right-radius: 0; border-bottom-right-radius: 0;">
+                            placeholder="Enter password" required>
                         <button class="btn btn-outline-secondary border-secondary px-3" type="button"
-                            id="toggle-password"
-                            style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0.75rem; border-bottom-right-radius: 0.75rem;">
+                            id="toggle-password">
                             <i class="bi bi-eye"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Remember Me & Forgot Password -->
-                <div class="mb-4 d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                        <input class="form-check-input bg-transparent border-secondary" type="checkbox" id="remember-me"
+                <div class="remember-row mb-4 d-flex justify-content-between align-items-center">
+                    <div class="form-check d-flex align-items-center gap-2 m-0">
+                        <input class="form-check-input bg-transparent border-secondary flex-shrink-0 m-0" type="checkbox" id="remember-me"
                             name="remember-me">
-                        <label class="form-check-label text-light-muted small" for="remember-me">
-                            Remember me
-                        </label>
+                        <label class="form-check-label text-light-muted small" for="remember-me">Remember me</label>
                     </div>
-                    <a href="#" class="small text-primary text-decoration-none hover-text-white">Forgot Password?</a>
+                    <a href="#" class="small text-primary text-decoration-none fw-medium">Forgot Password?</a>
                 </div>
 
                 <!-- Submit Button -->

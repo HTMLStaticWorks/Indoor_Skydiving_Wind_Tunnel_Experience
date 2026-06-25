@@ -340,8 +340,8 @@ body.offcanvas-open {
 @media (max-width: 1199px) {
     .navbar .container {
         max-width: 100% !important;
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
     }
 
     .nav-controls {
@@ -2118,23 +2118,18 @@ html[dir="rtl"] .comparison-container td:first-child {
         justify-content: center !important;
     }
 
-    /* Location cards centering */
-    .col-md-6 .glass-card .p-4,
-    .col-lg-4 .glass-card .p-4,
-    .col-md-4 .glass-card .p-4 {
+    /* Location cards: center the title only, NOT the info rows */
+    .col-md-6 .glass-card .p-4 h4,
+    .col-lg-4 .glass-card .p-4 h4,
+    .col-md-4 .glass-card .p-4 h4 {
         text-align: center;
     }
 
-    .col-md-6 .glass-card .d-inline-flex.flex-column,
-    .col-lg-4 .glass-card .d-inline-flex.flex-column,
-    .col-md-4 .glass-card .d-inline-flex.flex-column {
-        align-items: center !important;
-    }
-
-    .col-md-6 .glass-card .d-inline-flex .d-flex.align-items-start,
-    .col-lg-4 .glass-card .d-inline-flex .d-flex.align-items-start,
-    .col-md-4 .glass-card .d-inline-flex .d-flex.align-items-start {
-        justify-content: center;
+    /* Location info rows: always left-aligned */
+    .location-info,
+    .loc-row {
+        text-align: left !important;
+        justify-content: flex-start !important;
     }
 
     /* About page: team card centering */
@@ -2310,8 +2305,21 @@ html[dir="rtl"] img {
 
 /* --- B1. Core flex direction reversals for RTL --- */
 
-/* Footer contact info: reverse icon + text rows */
+/* Footer contact info: reverse icon + text rows and ensure LTR text direction for numbers/punctuation */
 html[dir="rtl"] footer .list-unstyled li.d-flex,
+html[dir="rtl"] footer .list-unstyled li.d-flex.align-items-start,
+html[dir="rtl"] footer .list-unstyled li.d-flex.align-items-center {
+    direction: ltr !important;
+    flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] footer .list-unstyled li.d-flex i,
+html[dir="rtl"] footer .list-unstyled li.d-flex.align-items-start i,
+html[dir="rtl"] footer .list-unstyled li.d-flex.align-items-center i {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
 html[dir="rtl"] .col-lg-5.reveal-right .d-flex.align-items-start,
 html[dir="rtl"] .col-lg-3 .list-unstyled li.d-flex {
     flex-direction: row-reverse !important;
@@ -2329,23 +2337,73 @@ html[dir="rtl"] .col-lg-6.reveal-right .d-flex.align-items-start {
     text-align: right !important;
 }
 
+/* Home page "About Experience" list: swap icon-box me-4 → ms-4 in RTL */
+html[dir="rtl"] .list-unstyled li.d-flex .icon-box.me-4 {
+    margin-right: 0 !important;
+    margin-left: 1.5rem !important;
+}
+
+/* About page "Engineering the Impossible": swap icon me-3 → ms-3 in RTL */
+html[dir="rtl"] .col-sm-6 .d-flex.align-items-start > i.me-3,
+html[dir="rtl"] .col-lg-6 .d-flex.align-items-start > i.me-3 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+/* === FIX: double-reversal bug for specific icon+text rows ===
+   direction:rtl on body already makes flex rows go right→left (icon on RIGHT).
+   The broad .col-lg-6 rule above adds row-reverse which double-reverses → icon LEFT.
+   Cancel the double-reversal for these specific sections with flex-direction:row. */
+
+/* Home page #about section list items */
+html[dir="rtl"] #about .list-unstyled li.d-flex.align-items-start {
+    flex-direction: row !important;
+    text-align: right !important;
+}
+
+/* About page "Engineering the Impossible" tech icon+text items */
+html[dir="rtl"] .col-lg-6.ps-lg-5.reveal-right .col-sm-6 .d-flex.align-items-start {
+    flex-direction: row !important;
+    text-align: right !important;
+}
+
 /* Safety section checkmark list reversal */
 html[dir="rtl"] #safety .list-unstyled li.d-flex {
+    direction: ltr !important;
     flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] #safety .list-unstyled li.d-flex i {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
 }
 
 /* Pricing feature list reversal */
 html[dir="rtl"] .pricing-card .list-unstyled li.d-flex {
+    direction: ltr !important;
     flex-direction: row-reverse !important;
 }
 
-/* Contact location cards */
-html[dir="rtl"] .glass-card p.d-flex {
-    flex-direction: row-reverse !important;
-    width: 100% !important;
+html[dir="rtl"] .pricing-card .list-unstyled li.d-flex i {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
 }
 
-html[dir="rtl"] .glass-card p.d-flex i {
+/* Contact location cards — RTL: let natural direction:rtl place icons on the right */
+html[dir="rtl"] .loc-row {
+    text-align: right;
+    /* No flex-direction override needed: direction:rtl on body naturally reverses flex rows */
+}
+
+/* Override the global rule that forces row-reverse on .d-flex.align-items-start
+   inside .col-md-6 — this was double-reversing the address row back to LTR */
+html[dir="rtl"] .col-md-6 .loc-row.d-flex.align-items-start,
+html[dir="rtl"] .col-lg-4 .loc-row.d-flex.align-items-start {
+    flex-direction: row !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] .loc-row i {
     margin-right: 0 !important;
     margin-left: 0.5rem !important;
 }
@@ -2353,8 +2411,16 @@ html[dir="rtl"] .glass-card p.d-flex i {
 /* FAQ accordion button — text right, chevron left in RTL */
 html[dir="rtl"] .max-w-800 .card button.d-flex,
 html[dir="rtl"] .card button[data-bs-toggle="collapse"] {
-    flex-direction: row-reverse;
-    text-align: right;
+    direction: ltr !important;
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+/* FAQ collapse body text in RTL */
+html[dir="rtl"] .max-w-800 .card .collapse div,
+html[dir="rtl"] .card .collapse .p-4 {
+    direction: ltr !important;
+    text-align: right !important;
 }
 
 /* --- B2. Offcanvas: open from left side in RTL --- */
@@ -2465,15 +2531,56 @@ html[dir="rtl"] footer .d-flex.flex-column.flex-md-row {
     }
 }
 
-/* Footer social links — keep LTR visual order */
+/* Footer social links — keep LTR visual order but align right on desktop */
 html[dir="rtl"] footer .social-links {
     direction: ltr;
+}
+@media (min-width: 992px) {
+    html[dir="rtl"] footer .social-links {
+        justify-content: flex-end !important;
+    }
 }
 
 /* Footer pe-xl-5 → ps-xl-5 in RTL */
 html[dir="rtl"] footer .col-xl-4.pe-xl-5 {
-    padding-right: 0 !important;
+    padding-right: 2rem !important;
     padding-left: 3rem !important;
+}
+
+/* Enforce right alignment and LTR layout (to prevent punctuation/number scrambling) inside footer in RTL mode */
+html[dir="rtl"] footer {
+    text-align: right !important;
+}
+
+html[dir="rtl"] footer h5,
+html[dir="rtl"] footer p,
+html[dir="rtl"] footer span,
+html[dir="rtl"] footer a:not(.btn-icon):not(.btn),
+html[dir="rtl"] footer li,
+html[dir="rtl"] footer input[type="email"] {
+    direction: ltr !important;
+}
+
+@media (min-width: 992px) {
+    html[dir="rtl"] footer h5,
+    html[dir="rtl"] footer p,
+    html[dir="rtl"] footer span,
+    html[dir="rtl"] footer a:not(.btn-icon):not(.btn),
+    html[dir="rtl"] footer li,
+    html[dir="rtl"] footer input[type="email"] {
+        text-align: right !important;
+    }
+}
+
+@media (max-width: 991px) {
+    html[dir="rtl"] footer h5,
+    html[dir="rtl"] footer p,
+    html[dir="rtl"] footer span,
+    html[dir="rtl"] footer a:not(.btn-icon):not(.btn),
+    html[dir="rtl"] footer li,
+    html[dir="rtl"] footer input[type="email"] {
+        text-align: center !important;
+    }
 }
 
 /* --- B8. Contact page form & info panel RTL fixes --- */
@@ -2630,8 +2737,9 @@ html[dir="rtl"] .form-check-input {
     }
 
     html[dir="rtl"] footer .list-unstyled li.d-flex {
-        flex-direction: row-reverse;
-        justify-content: center;
+        direction: ltr !important;
+        flex-direction: row-reverse !important;
+        justify-content: center !important;
     }
 
     html[dir="rtl"] .col-lg-5.reveal-right .d-flex.align-items-start {
